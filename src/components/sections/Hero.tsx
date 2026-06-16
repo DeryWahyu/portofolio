@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { Mail, Terminal, Download } from 'lucide-react';
+import { Mail, Download } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon, InstagramIcon } from '@/components/icons';
 import { Button } from '@/components/ui';
 import { socials } from '@/data/socials';

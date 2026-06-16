@@ -18,12 +18,7 @@ const statusLabels: Record<Project['status'], string> = {
   completed: 'Completed',
 };
 
-const contextColors: Record<Project['context'], string> = {
-  lomba: 'badgeLomba',
-  freelance: 'badgeFreelance',
-  tugas: 'badgeTugas',
-  skripsi: 'badgeSkripsi',
-};
+// contextColors dihapus karena tidak digunakan
 
 export default function ProjectCard({ project, onClick, index = 0 }: ProjectCardProps) {
   const locale = useLocale();

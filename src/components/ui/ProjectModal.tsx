@@ -17,12 +17,7 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-const contextColors: Record<Project['context'], string> = {
-  lomba: 'badgeLomba',
-  freelance: 'badgeFreelance',
-  tugas: 'badgeTugas',
-  skripsi: 'badgeSkripsi',
-};
+// contextColors dihapus karena tidak digunakan
 
 const overlayVariants = {
   hidden: { opacity: 0 },
