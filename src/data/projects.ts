@@ -32,7 +32,7 @@ export const projects: Project[] = [
     context: 'tugas',
     status: 'completed',
     links: {
-      github: '#',
+      github: 'https://github.com/DeryWahyu/triniStay',
     },
     thumbnail: '/proyek/trinistay.png',
   },
@@ -49,13 +49,13 @@ export const projects: Project[] = [
     status: 'live',
     links: {
       demo: 'https://ruang-tenang.site',
-      github: '#',
+      github: 'https://github.com/DeryWahyu/ruang-tenang-api-main',
     },
     thumbnail: '/proyek/ruang-tenang.png',
   },
   {
     slug: 'cikscoffee',
-    title: 'Cikscoffee',
+    title: 'Ciks Coffee',
     description: {
       id: 'Sistem manajemen operasional dan transaksi penjualan (POS) terintegrasi berbasis web dan mobile. Solusi all-in-one untuk pengelolaan bisnis kedai kopi mulai dari inventaris, kasir, hingga laporan keuangan real-time.',
       en: 'An integrated web and mobile-based point-of-sale (POS) and operational management system. An all-in-one solution for coffee shop business management, from inventory and cashier operations to real-time financial reporting.',
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     status: 'development',
     links: {
       demo: 'https://cikscoffee.my.id',
-      github: '#',
+      github: 'https://github.com/DeryWahyu/ciks_coffee_web',
     },
     thumbnail: '/proyek/cikscoffee.png',
   },
