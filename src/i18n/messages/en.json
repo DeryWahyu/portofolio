@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "hero": "Home",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "headline": "Dery Wahyu Perdana",
+    "subtitle": "Informatics Student & Fullstack Developer passionate about building innovative digital solutions through web and mobile technologies.",
+    "cta_projects": "View Projects",
+    "cta_cv": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know who I am and what I do",
+    "bio": "I am an Informatics student at Universitas Teknologi Yogyakarta with a passion for web and mobile development. With experience across various projects ranging from competitions, freelance work, to thesis research, I continuously sharpen my skills to create impactful digital solutions. I believe that great technology is one that solves real-world problems in an elegant and accessible way.",
+    "education_title": "Education"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A collection of projects I have worked on",
+    "filter_all": "All",
+    "filter_web": "Web",
+    "filter_mobile": "Mobile",
+    "filter_video": "Video",
+    "view_details": "View Details",
+    "live_demo": "Live Demo",
+    "source_code": "Source Code",
+    "download_apk": "Download APK",
+    "context_lomba": "Competition",
+    "context_freelance": "Freelance",
+    "context_tugas": "Coursework",
+    "context_skripsi": "Thesis",
+    "status_live": "Live",
+    "status_development": "In Development",
+    "status_completed": "Completed",
+    "modal_close": "Close",
+    "tech_stack": "Tech Stack",
+    "links": "Links"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I work with"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My organizational and professional journey",
+    "type_organisasi": "Organization",
+    "type_magang": "Internship"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Professional achievements and certificates",
+    "coming_soon": "Coming Soon",
+    "coming_soon_desc": "The certifications section is currently under development. Stay tuned for updates!"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's connect and collaborate",
+    "form_name": "Full Name",
+    "form_email": "Email Address",
+    "form_message": "Message",
+    "form_submit": "Send Message",
+    "form_success": "Message sent successfully! I will respond shortly.",
+    "form_error": "Something went wrong. Please try again later.",
+    "or_connect": "Or reach out via"
+  },
+  "footer": {
+    "copyright": "© {year} Dery Wahyu Perdana. All rights reserved.",
+    "made_with": "Made with"
+  },
+  "common": {
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode",
+    "language": "Language"
+  }
+}

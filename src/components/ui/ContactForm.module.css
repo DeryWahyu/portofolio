@@ -1,0 +1,183 @@
+/* ===== Contact Form ===== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  max-width: 560px;
+  width: 100%;
+}
+
+/* ===== Field Container ===== */
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Input ===== */
+
+.input {
+  width: 100%;
+  padding: 18px var(--spacing-md) 8px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color-strong);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.6;
+}
+
+/* ===== Floating Label ===== */
+
+.label {
+  position: absolute;
+  left: var(--spacing-md);
+  top: 14px;
+  font-size: var(--text-base);
+  color: var(--text-tertiary);
+  pointer-events: none;
+  transition:
+    top var(--transition-fast),
+    font-size var(--transition-fast),
+    color var(--transition-fast);
+  transform-origin: left top;
+}
+
+/* Label floats when input is focused or has content */
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label,
+.filled .label {
+  top: 6px;
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+}
+
+/* ===== Focus Ring ===== */
+
+.focusRing {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  border: 2px solid transparent;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input:focus ~ .focusRing {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ===== Error State ===== */
+
+.hasError .input {
+  border-color: var(--color-error);
+}
+
+.hasError .input:focus ~ .focusRing {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.hasError .input:focus ~ .label,
+.hasError .input:not(:placeholder-shown) ~ .label {
+  color: var(--color-error);
+}
+
+.errorText {
+  font-size: var(--text-xs);
+  color: var(--color-error);
+  margin-top: 6px;
+  padding-left: 2px;
+}
+
+/* ===== Submit Row ===== */
+
+.submitRow {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ===== Spinner ===== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* ===== Toast ===== */
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  animation: slideInToast 0.3s ease-out;
+}
+
+.toastSuccess {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.toastError {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-error);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+@keyframes slideInToast {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 640px) {
+  .submitRow {
+    justify-content: stretch;
+  }
+
+  .submitRow > * {
+    width: 100%;
+  }
+}

@@ -1,0 +1,133 @@
+.certifications {
+  padding: var(--section-padding) 0;
+  background: linear-gradient(to bottom, var(--bg-base), var(--bg-surface));
+  transition: background-color var(--transition-normal);
+  overflow: hidden;
+}
+
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: var(--spacing-8);
+  padding: var(--spacing-4) var(--spacing-4);
+  /* Waktu animasi disesuaikan dengan banyaknya gambar */
+  animation: scroll 40s linear infinite;
+  width: max-content;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.certItem {
+  position: relative;
+  width: 340px;
+  height: 255px;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--bg-base);
+  border: 2px solid var(--border-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.certItem:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
+  z-index: 10;
+}
+
+.certInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Menggeser persis 50% dari total width marqueeTrack karena gambar diduplikasi */
+    transform: translateX(calc(-50% - (var(--spacing-8) / 2)));
+  }
+}
+
+@media (max-width: 640px) {
+  .certItem {
+    width: 280px;
+    height: 210px;
+  }
+}
+
+/* ===== Lightbox ===== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--spacing-lg);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  z-index: 1;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.lightboxContent {
+  max-width: 900px;
+  max-height: 90vh;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: scaleIn 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.lightboxImage {
+  border-radius: var(--radius-lg);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}

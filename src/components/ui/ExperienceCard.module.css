@@ -1,0 +1,266 @@
+/* ===== Experience Card ===== */
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--border-color-strong);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  text-align: left;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Left border color by type */
+.card.magang {
+  border-left-color: var(--color-accent);
+}
+
+.card.organisasi {
+  border-left-color: var(--color-secondary);
+}
+
+/* ===== Header ===== */
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.organization {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* ===== Type Badge ===== */
+
+.typeBadge {
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge_magang {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.badge_organisasi {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+/* ===== Content ===== */
+
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  align-items: flex-start;
+}
+
+.textContent {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.role {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.period {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--border-color);
+  text-align: justify;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--spacing-lg);
+  }
+
+  .cardContent {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .certificateSection {
+    width: 100% !important;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .certButton {
+    max-width: 100% !important;
+  }
+
+  .organization {
+    font-size: var(--text-base);
+  }
+
+  .certPreview {
+    height: 120px;
+  }
+}
+
+/* ===== Certificate Section ===== */
+
+.certificateSection {
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.certButton {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.certPreview {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.certButton:hover .certPreview {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.certImage {
+  transition: transform var(--transition-slow);
+}
+
+.certButton:hover .certImage {
+  transform: scale(1.05);
+}
+
+.certOverlayHint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.certButton:hover .certOverlayHint {
+  opacity: 1;
+}
+
+/* ===== Lightbox ===== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--spacing-lg);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+  z-index: 1;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.lightboxContent {
+  max-width: 900px;
+  max-height: 90vh;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: scaleIn 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.lightboxImage {
+  border-radius: var(--radius-lg);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

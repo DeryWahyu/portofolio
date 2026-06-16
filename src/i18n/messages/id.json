@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "hero": "Beranda",
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek",
+    "skills": "Keahlian",
+    "experience": "Pengalaman",
+    "certifications": "Sertifikasi",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "greeting": "Halo, saya",
+    "headline": "Dery Wahyu Perdana",
+    "subtitle": "Mahasiswa Informatika & Backend Developer yang bersemangat membangun solusi digital inovatif melalui teknologi web dan mobile.",
+    "cta_projects": "Lihat Proyek",
+    "cta_cv": "Unduh CV"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "subtitle": "Kenali lebih dekat siapa saya dan apa yang saya kerjakan",
+    "bio": "Saya adalah mahasiswa Informatika di Universitas Teknologi Yogyakarta yang memiliki passion di bidang pengembangan web dan mobile. Dengan pengalaman di berbagai proyek mulai dari lomba, freelance, hingga tugas kuliah, saya terus mengasah kemampuan untuk menciptakan solusi digital yang berdampak. Saya percaya bahwa teknologi yang baik adalah teknologi yang mampu menyelesaikan masalah nyata dengan cara yang elegan dan mudah diakses.",
+    "education_title": "Pendidikan"
+  },
+  "projects": {
+    "title": "Proyek",
+    "subtitle": "Kumpulan proyek yang telah saya kerjakan",
+    "filter_all": "Semua",
+    "filter_web": "Web",
+    "filter_mobile": "Mobile",
+    "filter_video": "Video",
+    "view_details": "Lihat Detail",
+    "live_demo": "Demo Langsung",
+    "source_code": "Kode Sumber",
+    "download_apk": "Unduh APK",
+    "context_lomba": "Lomba",
+    "context_freelance": "Freelance",
+    "context_tugas": "Tugas Kuliah",
+    "context_skripsi": "Skripsi",
+    "status_live": "Live",
+    "status_development": "Dalam Pengembangan",
+    "status_completed": "Selesai",
+    "modal_close": "Tutup",
+    "tech_stack": "Teknologi",
+    "links": "Tautan"
+  },
+  "skills": {
+    "title": "Keahlian",
+    "subtitle": "Teknologi dan tools yang saya kuasai"
+  },
+  "experience": {
+    "title": "Pengalaman",
+    "subtitle": "Perjalanan organisasi dan profesional saya",
+    "type_organisasi": "Organisasi",
+    "type_magang": "Magang"
+  },
+  "certifications": {
+    "title": "Sertifikasi",
+    "subtitle": "Pencapaian dan sertifikat profesional",
+    "coming_soon": "Segera Hadir",
+    "coming_soon_desc": "Bagian sertifikasi sedang dalam proses pengembangan. Nantikan pembaruan selanjutnya!"
+  },
+  "contact": {
+    "title": "Kontak",
+    "subtitle": "Mari terhubung dan berkolaborasi",
+    "form_name": "Nama Lengkap",
+    "form_email": "Alamat Email",
+    "form_message": "Pesan",
+    "form_submit": "Kirim Pesan",
+    "form_success": "Pesan berhasil terkirim! Saya akan segera merespons.",
+    "form_error": "Terjadi kesalahan. Silakan coba lagi nanti.",
+    "or_connect": "Atau hubungi saya melalui"
+  },
+  "footer": {
+    "copyright": "© {year} Dery Wahyu Perdana. Hak cipta dilindungi.",
+    "made_with": "Dibuat dengan"
+  },
+  "common": {
+    "dark_mode": "Mode Gelap",
+    "light_mode": "Mode Terang",
+    "language": "Bahasa"
+  }
+}
