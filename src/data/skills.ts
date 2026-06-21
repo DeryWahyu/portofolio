@@ -19,7 +19,7 @@ export const skillGroups: SkillGroup[] = [
       en: 'Frameworks & Libraries',
     },
     icon: 'Layers',
-    items: ['Laravel', 'Next.js', 'React', 'Flutter', 'Tailwind CSS', 'Express.js'],
+    items: ['Laravel', 'Next.js', 'React.js', 'Flutter', 'Tailwind CSS'],
   },
   {
     title: {
@@ -29,11 +29,7 @@ export const skillGroups: SkillGroup[] = [
     icon: 'Wrench',
     items: [
       'Figma',
-      'Antigravity',
       'Visual Studio Code',
-      'Git',
-      'Docker',
-      'Postman',
       'Adobe Premiere Pro',
       'Adobe After Effects',
       'Capcut',
@@ -45,6 +41,6 @@ export const skillGroups: SkillGroup[] = [
       en: 'Database & Others',
     },
     icon: 'Database',
-    items: ['MySQL', 'DevOps', 'Firebase', 'Supabase', 'Cloudinary'],
+    items: ['MySQL', 'Firebase', 'Supabase', 'Cloudinary', 'Docker','Git'],
   },
 ];

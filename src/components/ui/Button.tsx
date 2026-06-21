@@ -27,6 +27,7 @@ interface ButtonAsLink extends ButtonBaseProps {
   onClick?: never;
   disabled?: never;
   type?: never;
+  download?: string | boolean;
 }
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
@@ -67,11 +68,13 @@ export default function Button({
   );
 
   if (href) {
+    const { download } = rest as ButtonAsLink;
     return (
       <motion.a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        download={download}
         {...sharedMotionProps}
       >
         {content}

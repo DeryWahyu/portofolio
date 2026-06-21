@@ -22,16 +22,6 @@ export function About() {
           title: 'SMK Jurusan Multimedia',
           institution: 'SMK Negeri 1 Gading Rejo',
         },
-        {
-          year: '2017 – 2020',
-          title: 'Sekolah Menengah Pertama',
-          institution: 'SMP Muhamadiyah 1 Gading Rejo',
-        },
-        {
-          year: '2011 – 2017',
-          title: 'Sekolah Dasar',
-          institution: 'SD Negeri 8 Way Lima',
-        },
       ]
     : [
         {
@@ -43,16 +33,6 @@ export function About() {
           year: '2020 – 2023',
           title: 'Vocational High School (Multimedia)',
           institution: 'SMK Negeri 1 Gading Rejo',
-        },
-        {
-          year: '2017 – 2020',
-          title: 'Junior High School',
-          institution: 'SMP Muhamadiyah 1 Gading Rejo',
-        },
-        {
-          year: '2011 – 2017',
-          title: 'Elementary School',
-          institution: 'SD Negeri 8 Way Lima',
         },
       ];
 

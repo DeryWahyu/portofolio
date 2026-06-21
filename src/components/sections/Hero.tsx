@@ -98,7 +98,8 @@ export function Hero() {
             <Button
               variant="outline"
               size="lg"
-              href="/files/cv.pdf"
+              href="/cv/CV DERY - Hardvard Style.pdf"
+              download="CV_Dery_Wahyu_Perdana.pdf"
               icon={<Download size={18} />}
             >
               {t('cta_cv')}
