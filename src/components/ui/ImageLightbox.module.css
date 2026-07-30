@@ -1,0 +1,131 @@
+.dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: var(--spacing-lg);
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  overflow: auto;
+}
+
+.dialog[open] {
+  display: grid;
+  place-items: center;
+}
+
+.dialog::backdrop {
+  background: rgba(2, 6, 23, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.panel {
+  position: relative;
+  width: min(900px, 100%);
+  max-height: calc(100dvh - (2 * var(--spacing-lg)));
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: var(--radius-lg);
+  background: #0f172a;
+  box-shadow: var(--shadow-2xl);
+  overflow: auto;
+  animation: lightboxIn 0.25s ease-out;
+}
+
+.title {
+  padding: var(--spacing-sm) 3.5rem var(--spacing-sm) var(--spacing-sm);
+  color: #f8fafc;
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-full);
+  background: #334155;
+  color: #ffffff;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.closeButton:hover {
+  background: #475569;
+  transform: scale(1.05);
+}
+
+.imageFrame {
+  position: relative;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  padding: var(--spacing-lg);
+  background: #0f172a;
+  color: #cbd5e1;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: center;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100dvh - 8rem);
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.imagePending {
+  opacity: 0;
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .dialog {
+    padding: var(--spacing-sm);
+  }
+
+  .panel {
+    max-height: calc(100dvh - (2 * var(--spacing-sm)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+}

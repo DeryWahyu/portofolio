@@ -115,11 +115,10 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                     src={project.thumbnail}
                     alt={project.title}
                     fill
-                    sizes="700px"
+                    sizes="(max-width: 700px) calc(100vw - 16px), 700px"
                     style={{ objectFit: 'cover' }}
                     className={styles.thumbnailImage}
                     priority
-                    unoptimized // using unoptimized for ease of local assets without next dev warning
                   />
                 </div>
               ) : (

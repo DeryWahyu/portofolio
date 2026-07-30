@@ -74,8 +74,8 @@
 
 .outline {
   background: transparent;
-  color: var(--color-primary);
-  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary-text);
+  border: 1.5px solid var(--color-primary-text);
 }
 
 .outline:hover {

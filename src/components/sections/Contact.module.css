@@ -57,7 +57,7 @@
 }
 
 .socialItem:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-text);
   background-color: var(--bg-elevated);
   transform: translateX(6px);
   box-shadow: var(--shadow-sm);
@@ -71,7 +71,7 @@
   height: 2.5rem;
   border-radius: var(--radius-full);
   background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary-light));
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   transition: all var(--transition-fast);
 }
 

@@ -52,11 +52,22 @@
     "title": "Pengalaman",
     "subtitle": "Perjalanan organisasi dan profesional saya",
     "type_organisasi": "Organisasi",
-    "type_magang": "Magang"
+    "type_magang": "Magang",
+    "view_certificate": "Lihat Sertifikat",
+    "close_certificate": "Tutup tampilan sertifikat",
+    "loading_certificate": "Memuat gambar sertifikat…"
   },
   "certifications": {
     "title": "Sertifikasi",
     "subtitle": "Pencapaian dan sertifikat profesional",
+    "list_label": "Daftar sertifikat",
+    "open_certificate": "Buka sertifikat",
+    "close_lightbox": "Tutup tampilan sertifikat",
+    "loading_certificate": "Memuat gambar sertifikat…",
+    "pause_marquee": "Jeda pergerakan daftar sertifikat",
+    "resume_marquee": "Lanjutkan pergerakan daftar sertifikat",
+    "pause": "Jeda",
+    "resume": "Lanjutkan",
     "coming_soon": "Segera Hadir",
     "coming_soon_desc": "Bagian sertifikasi sedang dalam proses pengembangan. Nantikan pembaruan selanjutnya!"
   },

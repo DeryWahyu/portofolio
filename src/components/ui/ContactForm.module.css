@@ -67,7 +67,7 @@
 .filled .label {
   top: 6px;
   font-size: var(--text-xs);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 /* ===== Focus Ring ===== */
@@ -85,29 +85,29 @@
 }
 
 .input:focus ~ .focusRing {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-text);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 /* ===== Error State ===== */
 
 .hasError .input {
-  border-color: var(--color-error);
+  border-color: var(--color-error-text);
 }
 
 .hasError .input:focus ~ .focusRing {
-  border-color: var(--color-error);
+  border-color: var(--color-error-text);
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
 }
 
 .hasError .input:focus ~ .label,
 .hasError .input:not(:placeholder-shown) ~ .label {
-  color: var(--color-error);
+  color: var(--color-error-text);
 }
 
 .errorText {
   font-size: var(--text-xs);
-  color: var(--color-error);
+  color: var(--color-error-text);
   margin-top: 6px;
   padding-left: 2px;
 }
@@ -149,13 +149,13 @@
 
 .toastSuccess {
   background-color: rgba(34, 197, 94, 0.1);
-  color: var(--color-success);
+  color: var(--color-success-text);
   border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .toastError {
   background-color: rgba(239, 68, 68, 0.1);
-  color: var(--color-error);
+  color: var(--color-error-text);
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 

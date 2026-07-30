@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { X, Award } from 'lucide-react';
+import { Award } from 'lucide-react';
 import type { Experience } from '@/data/experiences';
 import AnimateOnScroll from './AnimateOnScroll';
+import ImageLightbox from './ImageLightbox';
 import styles from './ExperienceCard.module.css';
 
 interface ExperienceCardProps {
@@ -16,14 +17,17 @@ interface ExperienceCardProps {
 export default function ExperienceCard({ experience, index = 0 }: ExperienceCardProps) {
   const locale = useLocale();
   const t = useTranslations('experience');
-  const [showCert, setShowCert] = useState(false);
+  const [showCertificate, setShowCertificate] = useState(false);
 
   const typeLabel = experience.type === 'magang' ? t('type_magang') : t('type_organisasi');
   const roleText = locale === 'id' ? experience.role.id : experience.role.en;
   const descriptionText = experience.description
     ? (locale === 'id' ? experience.description.id : experience.description.en)
     : '';
-  const certLabel = locale === 'id' ? 'Lihat Sertifikat' : 'View Certificate';
+  const certificateLabel = t('view_certificate');
+  const certificateAlt = experience.certificate
+    ? (locale === 'id' ? experience.certificate.alt.id : experience.certificate.alt.en)
+    : '';
 
   return (
     <>
@@ -39,34 +43,31 @@ export default function ExperienceCard({ experience, index = 0 }: ExperienceCard
               </div>
               <p className={styles.role}>{roleText}</p>
               <span className={styles.period}>{experience.period}</span>
-              {descriptionText && (
-                <p className={styles.description}>{descriptionText}</p>
-              )}
+              {descriptionText && <p className={styles.description}>{descriptionText}</p>}
             </div>
 
-            {/* Certificate preview */}
             {experience.certificate && (
               <div className={styles.certificateSection}>
                 <button
+                  type="button"
                   className={styles.certButton}
-                  onClick={() => setShowCert(true)}
-                  aria-label={certLabel}
+                  onClick={() => setShowCertificate(true)}
+                  aria-label={`${certificateLabel}: ${experience.organization}`}
                 >
-                  <div className={styles.certPreview}>
+                  <span className={styles.certPreview}>
                     <Image
-                      src={experience.certificate}
-                      alt={`${experience.organization} certificate`}
+                      src={experience.certificate.thumbnail}
+                      alt={certificateAlt}
                       fill
-                      sizes="(max-width: 640px) 100vw, 240px"
-                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 640px) calc(100vw - 80px), 240px"
+                      quality={72}
                       className={styles.certImage}
-                      unoptimized
                     />
-                    <div className={styles.certOverlayHint}>
+                    <span className={styles.certOverlayHint} aria-hidden="true">
                       <Award size={20} />
-                      <span>{certLabel}</span>
-                    </div>
-                  </div>
+                      <span>{certificateLabel}</span>
+                    </span>
+                  </span>
                 </button>
               </div>
             )}
@@ -74,32 +75,18 @@ export default function ExperienceCard({ experience, index = 0 }: ExperienceCard
         </div>
       </AnimateOnScroll>
 
-      {/* Lightbox modal */}
-      {experience.certificate && showCert && (
-        <div className={styles.lightbox} onClick={() => setShowCert(false)}>
-          <button
-            className={styles.lightboxClose}
-            onClick={() => setShowCert(false)}
-            aria-label="Close"
-          >
-            <X size={24} />
-          </button>
-          <div
-            className={styles.lightboxContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={experience.certificate}
-              alt={`${experience.organization} certificate`}
-              width={900}
-              height={640}
-              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-              className={styles.lightboxImage}
-              unoptimized
-              priority
-            />
-          </div>
-        </div>
+      {experience.certificate && showCertificate && (
+        <ImageLightbox
+          isOpen
+          onClose={() => setShowCertificate(false)}
+          src={experience.certificate.src}
+          alt={certificateAlt}
+          title={`${certificateLabel} — ${experience.organization}`}
+          closeLabel={t('close_certificate')}
+          loadingLabel={t('loading_certificate')}
+          width={experience.certificate.width}
+          height={experience.certificate.height}
+        />
       )}
     </>
   );

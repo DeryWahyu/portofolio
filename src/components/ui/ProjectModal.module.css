@@ -85,7 +85,7 @@
   font-size: 4rem;
   font-weight: 700;
   color: var(--text-on-primary);
-  opacity: 0.4;
+  opacity: 1;
 }
 
 /* ===== Body ===== */
@@ -220,7 +220,7 @@
   font-size: var(--text-sm);
   font-weight: 500;
   background: var(--bg-elevated);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   border: 1px solid var(--border-color);
 }
 

@@ -28,7 +28,7 @@
 
 .filterBtn:hover {
   color: var(--text-primary);
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-text);
   background-color: var(--bg-elevated);
   transform: translateY(-2px);
 }

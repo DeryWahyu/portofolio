@@ -76,7 +76,7 @@
   font-family: var(--font-heading);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   margin-bottom: var(--spacing-2);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -96,7 +96,7 @@
   font-family: var(--font-heading);
   font-size: clamp(1.25rem, 2.5vw, 2rem);
   font-weight: var(--font-weight-bold);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: var(--gradient-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -141,7 +141,7 @@
 
 .socialLink:hover {
   color: var(--text-primary);
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-text);
   background-color: var(--bg-elevated);
   transform: translateY(-3px) scale(1.05);
   box-shadow: var(--shadow-md);
@@ -193,7 +193,7 @@
 }
 
 .photoIcon {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   margin-bottom: var(--spacing-2);
   animation: float 4s ease-in-out infinite;
 }

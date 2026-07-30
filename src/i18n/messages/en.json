@@ -52,11 +52,22 @@
     "title": "Experience",
     "subtitle": "My organizational and professional journey",
     "type_organisasi": "Organization",
-    "type_magang": "Internship"
+    "type_magang": "Internship",
+    "view_certificate": "View Certificate",
+    "close_certificate": "Close certificate viewer",
+    "loading_certificate": "Loading certificate image…"
   },
   "certifications": {
     "title": "Certifications",
     "subtitle": "Professional achievements and certificates",
+    "list_label": "Certificate list",
+    "open_certificate": "Open certificate",
+    "close_lightbox": "Close certificate viewer",
+    "loading_certificate": "Loading certificate image…",
+    "pause_marquee": "Pause certificate list movement",
+    "resume_marquee": "Resume certificate list movement",
+    "pause": "Pause",
+    "resume": "Resume",
     "coming_soon": "Coming Soon",
     "coming_soon_desc": "The certifications section is currently under development. Stay tuned for updates!"
   },
