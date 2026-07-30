@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Outfit } from 'next/font/google';
+import { getLocale } from 'next-intl/server';
+import { getSiteUrl } from '@/lib/site-url';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -15,6 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: getSiteUrl(),
   title: 'Dery Wahyu Perdana | Backend Developer & Video Editor',
   description:
     'Professional portfolio of Dery Wahyu Perdana — Backend Developer & Video Editor. Specializing in building robust server-side applications and crafting compelling video content.',
@@ -50,13 +53,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
+
   return (
-    <html lang="id" className={`${plusJakartaSans.variable} ${outfit.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${plusJakartaSans.variable} ${outfit.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
       </body>

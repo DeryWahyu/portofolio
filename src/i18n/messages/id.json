@@ -71,6 +71,11 @@
     "form_error": "Terjadi kesalahan. Silakan coba lagi nanti.",
     "or_connect": "Atau hubungi saya melalui"
   },
+  "notFound": {
+    "title": "Halaman Tidak Ditemukan",
+    "description": "Halaman yang Anda cari tidak tersedia atau telah dipindahkan.",
+    "backHome": "Kembali ke Beranda"
+  },
   "footer": {
     "copyright": "© {year} Dery Wahyu Perdana. Hak cipta dilindungi.",
     "made_with": "Dibuat dengan"

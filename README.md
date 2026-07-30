@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Site URL and SEO
+
+Set `SITE_URL` to the public origin of the deployed portfolio:
+
+```env
+SITE_URL=https://your-domain.com
+```
+
+This value is used for canonical links, `robots.txt`, and `sitemap.xml`. Vercel
+production URLs are detected automatically when `SITE_URL` is not set. Local
+development falls back to `http://localhost:3000`.
+
 ## Contact Form
 
 The contact form submits through a server-side route to Web3Forms.

@@ -1,8 +1,11 @@
 import { FileQuestion, Home } from 'lucide-react';
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
 import styles from './not-found.module.css';
 
-export default function NotFound() {
+export default async function NotFound() {
+  const t = await getTranslations('notFound');
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -10,13 +13,11 @@ export default function NotFound() {
         <div className={styles.iconWrapper}>
           <FileQuestion size={40} />
         </div>
-        <h2 className={styles.title}>Page Not Found</h2>
-        <p className={styles.description}>
-          The page you are looking for doesn&apos;t exist or has been moved.
-        </p>
+        <h2 className={styles.title}>{t('title')}</h2>
+        <p className={styles.description}>{t('description')}</p>
         <Link href="/" className={styles.button}>
           <Home size={18} />
-          <span>Back to Home</span>
+          <span>{t('backHome')}</span>
         </Link>
       </div>
     </div>
