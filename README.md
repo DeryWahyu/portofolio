@@ -16,6 +16,22 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact Form
+
+The contact form submits through a server-side route to Web3Forms.
+
+1. Create an access key for your destination email at [Web3Forms](https://web3forms.com/).
+2. Copy `.env.example` to `.env.local`.
+3. Replace the placeholder with your access key:
+
+```env
+WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
+```
+
+Restart the development server after changing `.env.local`. For production,
+configure `WEB3FORMS_ACCESS_KEY` in your hosting provider's environment settings.
+Do not commit `.env.local`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
