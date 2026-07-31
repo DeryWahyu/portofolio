@@ -11,15 +11,15 @@
   },
   "hero": {
     "greeting": "Halo, saya",
-    "headline": "Dery Wahyu Perdana",
-    "subtitle": "Mahasiswa Informatika & Backend Developer yang bersemangat membangun solusi digital inovatif melalui teknologi web dan mobile.",
+    "headline": "Fullstack Developer & Video Editor",
+    "subtitle": "Mahasiswa Informatika semester 7 yang berfokus membangun aplikasi web end-to-end yang responsif dan andal, sekaligus menciptakan konten video yang kreatif dan menarik.",
     "cta_projects": "Lihat Proyek",
     "cta_cv": "Unduh CV"
   },
   "about": {
     "title": "Tentang Saya",
     "subtitle": "Kenali lebih dekat siapa saya dan apa yang saya kerjakan",
-    "bio": "Saya adalah mahasiswa Informatika di Universitas Teknologi Yogyakarta yang memiliki passion di bidang pengembangan web dan mobile. Dengan pengalaman di berbagai proyek mulai dari lomba, freelance, hingga tugas kuliah, saya terus mengasah kemampuan untuk menciptakan solusi digital yang berdampak. Saya percaya bahwa teknologi yang baik adalah teknologi yang mampu menyelesaikan masalah nyata dengan cara yang elegan dan mudah diakses.",
+    "bio": "Saya adalah mahasiswa Informatika semester 7 di Universitas Teknologi Yogyakarta yang berfokus pada Fullstack Development dan Video Editing. Dengan pengalaman di berbagai proyek web dan mobile, kompetisi, freelance, dan organisasi, saya terus mengasah kemampuan untuk membangun solusi digital yang fungsional, menarik, dan mudah digunakan.",
     "education_title": "Pendidikan"
   },
   "projects": {

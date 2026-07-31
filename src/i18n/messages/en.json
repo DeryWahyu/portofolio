@@ -11,15 +11,15 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "headline": "Dery Wahyu Perdana",
-    "subtitle": "Informatics Student & Fullstack Developer passionate about building innovative digital solutions through web and mobile technologies.",
+    "headline": "Fullstack Developer & Video Editor",
+    "subtitle": "Seventh-semester Informatics student focused on building responsive and reliable end-to-end web applications while creating engaging video content.",
     "cta_projects": "View Projects",
     "cta_cv": "Download CV"
   },
   "about": {
     "title": "About Me",
     "subtitle": "Get to know who I am and what I do",
-    "bio": "I am an Informatics student at Universitas Teknologi Yogyakarta with a passion for web and mobile development. With experience across various projects ranging from competitions, freelance work, to thesis research, I continuously sharpen my skills to create impactful digital solutions. I believe that great technology is one that solves real-world problems in an elegant and accessible way.",
+    "bio": "I am a seventh-semester Informatics student at Universitas Teknologi Yogyakarta focused on Fullstack Development and Video Editing. Through web and mobile projects, competitions, freelance work, and organizational experience, I continue sharpening my ability to build digital solutions that are functional, engaging, and easy to use.",
     "education_title": "Education"
   },
   "projects": {

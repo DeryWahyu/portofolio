@@ -54,21 +54,21 @@ export function About() {
             <p className={styles.bioText}>
               {locale === 'id' ? (
                 <>
-                  Sebagai mahasiswa Informatika semester 6, saya memfokuskan diri pada bidang{' '}
-                  <span className={styles.highlightText}>Backend Development</span>, namun memiliki kemampuan
-                  yang solid dalam <span className={styles.highlightText}>Frontend Development (Fullstack)</span>.
-                  Selain koding, saya juga aktif berkarya sebagai seorang{' '}
-                  <span className={styles.highlightText}>videografer &amp; video editor</span> profesional,
-                  yang melatih kreativitas dan perhatian saya terhadap detail visual.
+                  Sebagai mahasiswa Informatika semester 7, saya mengembangkan kemampuan{' '}
+                  <span className={styles.highlightText}>Fullstack Development</span> secara menyeluruh,
+                  mulai dari merancang antarmuka hingga membangun backend dan mengelola data. Di luar
+                  koding, saya juga aktif sebagai{' '}
+                  <span className={styles.highlightText}>videografer &amp; video editor</span>, yang
+                  memperkuat kreativitas, storytelling, dan perhatian saya terhadap detail visual.
                 </>
               ) : (
                 <>
-                  As a 6th-semester Informatics student, I focus on{' '}
-                  <span className={styles.highlightText}>Backend Development</span>, while maintaining solid skills
-                  in <span className={styles.highlightText}>Frontend Development (Fullstack)</span>.
-                  Outside of coding, I am also active as a professional{' '}
-                  <span className={styles.highlightText}>videographer &amp; video editor</span>,
-                  which trains my creativity and attention to visual detail.
+                  As a seventh-semester Informatics student, I develop end-to-end{' '}
+                  <span className={styles.highlightText}>Fullstack Development</span> skills, from
+                  designing interfaces to building backends and managing data. Outside of coding, I am
+                  also active as a{' '}
+                  <span className={styles.highlightText}>videographer &amp; video editor</span>, which
+                  strengthens my creativity, storytelling, and attention to visual detail.
                 </>
               )}
             </p>

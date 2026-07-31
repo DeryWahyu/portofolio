@@ -9,16 +9,16 @@ import { getSiteUrl } from '@/lib/site-url';
 
 const localizedMetadata = {
   id: {
-    title: 'Dery Wahyu Perdana | Backend Developer & Video Editor',
+    title: 'Dery Wahyu Perdana | Fullstack Developer & Video Editor',
     description:
-      'Portofolio profesional Dery Wahyu Perdana — Backend Developer & Video Editor berbasis di Indonesia.',
+      'Portofolio profesional Dery Wahyu Perdana — Fullstack Developer & Video Editor berbasis di Indonesia.',
     openGraphLocale: 'id_ID',
     alternateLocale: 'en_US',
   },
   en: {
-    title: 'Dery Wahyu Perdana | Backend Developer & Video Editor',
+    title: 'Dery Wahyu Perdana | Fullstack Developer & Video Editor',
     description:
-      'Professional portfolio of Dery Wahyu Perdana — Backend Developer & Video Editor based in Indonesia.',
+      'Professional portfolio of Dery Wahyu Perdana — Fullstack Developer & Video Editor based in Indonesia.',
     openGraphLocale: 'en_US',
     alternateLocale: 'id_ID',
   },

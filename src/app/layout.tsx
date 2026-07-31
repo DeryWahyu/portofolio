@@ -18,11 +18,13 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
-  title: 'Dery Wahyu Perdana | Backend Developer & Video Editor',
+  title: 'Dery Wahyu Perdana | Fullstack Developer & Video Editor',
   description:
-    'Professional portfolio of Dery Wahyu Perdana — Backend Developer & Video Editor. Specializing in building robust server-side applications and crafting compelling video content.',
+    'Professional portfolio of Dery Wahyu Perdana — Fullstack Developer & Video Editor. Building responsive end-to-end web applications and creating compelling video content.',
   keywords: [
     'Dery Wahyu Perdana',
+    'Fullstack Developer',
+    'Frontend Developer',
     'Backend Developer',
     'Video Editor',
     'Portfolio',
@@ -35,17 +37,17 @@ export const metadata: Metadata = {
   creator: 'Dery Wahyu Perdana',
   openGraph: {
     type: 'website',
-    title: 'Dery Wahyu Perdana | Backend Developer & Video Editor',
+    title: 'Dery Wahyu Perdana | Fullstack Developer & Video Editor',
     description:
-      'Professional portfolio of Dery Wahyu Perdana — Backend Developer & Video Editor. Specializing in building robust server-side applications and crafting compelling video content.',
+      'Professional portfolio of Dery Wahyu Perdana — Fullstack Developer & Video Editor. Building responsive end-to-end web applications and creating compelling video content.',
     siteName: 'Dery Wahyu Perdana Portfolio',
     locale: 'id_ID',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dery Wahyu Perdana | Backend Developer & Video Editor',
+    title: 'Dery Wahyu Perdana | Fullstack Developer & Video Editor',
     description:
-      'Professional portfolio of Dery Wahyu Perdana — Backend Developer & Video Editor.',
+      'Professional portfolio of Dery Wahyu Perdana — Fullstack Developer & Video Editor.',
   },
   robots: {
     index: true,

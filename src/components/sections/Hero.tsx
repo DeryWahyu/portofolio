@@ -80,7 +80,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.h2 className={styles.headline} variants={itemVariants}>
-            Backend Developer &amp; Video Editor
+            {t('headline')}
           </motion.h2>
 
           <motion.p className={styles.subtitle} variants={itemVariants}>
