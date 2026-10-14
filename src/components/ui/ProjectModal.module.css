@@ -77,13 +77,8 @@
 }
 
 .modalPortraitWrapper {
-  background-color: #ebf3ff;
-  background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.22) 0%, rgba(2, 132, 199, 0.12) 45%, transparent 75%),
-    radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.16) 1.2px, transparent 0),
-    linear-gradient(165deg, #eff6ff 0%, #dbeafe 50%, #e0f2fe 100%);
-  background-size: 100% 100%, 16px 16px, 100% 100%;
-  border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+  background: var(--gradient-surface);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;

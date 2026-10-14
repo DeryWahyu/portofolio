@@ -36,7 +36,6 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
         delay: index * 0.1,
         ease: [0.25, 0.1, 0.25, 1],
       }}
-      whileHover={{ scale: 1.025 }}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {

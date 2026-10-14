@@ -6,17 +6,9 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
-  transition:
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.card:hover {
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
-  border-color: var(--color-primary-text);
 }
 
 .card:focus-visible {
@@ -51,40 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ebf3ff;
-  background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.22) 0%, rgba(2, 132, 199, 0.12) 45%, transparent 75%),
-    radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.16) 1.2px, transparent 0),
-    linear-gradient(165deg, #eff6ff 0%, #dbeafe 50%, #e0f2fe 100%);
-  background-size: 100% 100%, 16px 16px, 100% 100%;
-  border-bottom: 1px solid rgba(37, 99, 235, 0.15);
-}
-
-.portraitWrapper::before {
-  content: '';
-  position: absolute;
-  inset: 10px;
-  border: 1px dashed rgba(37, 99, 235, 0.22);
-  border-radius: 12px;
-  pointer-events: none;
-  transition: border-color var(--transition-base);
-}
-
-.card:hover .portraitWrapper::before {
-  border-color: rgba(37, 99, 235, 0.42);
-}
-
-.portraitWrapper::after {
-  content: '';
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(147, 197, 253, 0.4) 0%, transparent 70%);
-  filter: blur(14px);
-  pointer-events: none;
+  background: var(--gradient-surface);
 }
 
 /* Single Phone Mockup */
@@ -104,15 +63,9 @@
   aspect-ratio: 9 / 20;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 22px -3px rgba(15, 23, 42, 0.2), 0 3px 8px -1px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 8px 22px -3px rgba(15, 23, 42, 0.2), 0 3px 8px -1px rgba(15, 23, 42, 0.08);
   border: 1.5px solid rgba(255, 255, 255, 0.95);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
   background: #000;
-}
-
-.card:hover .phoneFrame {
-  transform: scale(1.02);
-  box-shadow: 0 12px 26px -3px rgba(37, 99, 235, 0.26);
 }
 
 /* 3-Mockup Trio Showcase */
@@ -135,7 +88,6 @@
   overflow: hidden;
   border: 1.5px solid rgba(255, 255, 255, 0.95);
   background: #000;
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease, filter 0.35s ease;
 }
 
 .trioPhoneLeft {
@@ -148,7 +100,7 @@
 .trioPhoneCenter {
   transform: translateX(0) translateY(0) scale(1);
   z-index: 3;
-  box-shadow: 0 12px 28px -2px rgba(15, 23, 42, 0.25), 0 4px 10px -2px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 12px 28px -2px rgba(15, 23, 42, 0.25), 0 4px 10px -2px rgba(15, 23, 42, 0.08);
 }
 
 .trioPhoneRight {
@@ -156,24 +108,6 @@
   z-index: 2;
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
   filter: brightness(0.96);
-}
-
-/* Dynamic Fan-out on Hover (No vertical shift up) */
-.card:hover .trioPhoneLeft {
-  transform: translateX(-42px) translateY(3px) scale(0.88);
-  box-shadow: 0 10px 22px -2px rgba(37, 99, 235, 0.22);
-  filter: brightness(1);
-}
-
-.card:hover .trioPhoneCenter {
-  transform: translateX(0) translateY(0) scale(1.02);
-  box-shadow: 0 16px 32px -3px rgba(37, 99, 235, 0.28);
-}
-
-.card:hover .trioPhoneRight {
-  transform: translateX(42px) translateY(3px) scale(0.88);
-  box-shadow: 0 10px 22px -2px rgba(37, 99, 235, 0.22);
-  filter: brightness(1);
 }
 
 .phoneImage {
@@ -308,10 +242,4 @@
   background: var(--bg-elevated);
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
-  transition: color var(--transition-fast), border-color var(--transition-fast);
-}
-
-.card:hover .techBadge {
-  color: var(--color-primary-text);
-  border-color: var(--color-primary-text);
 }
