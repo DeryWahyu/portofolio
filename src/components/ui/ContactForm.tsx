@@ -3,7 +3,6 @@
 import { useState, FormEvent } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
-import Button from './Button';
 import styles from './ContactForm.module.css';
 
 interface FormState {
@@ -101,65 +100,70 @@ export default function ContactForm() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} noValidate>
-      {/* Name */}
-      <div className={`${styles.field} ${errors.name ? styles.hasError : ''} ${form.name ? styles.filled : ''}`}>
-        <input
-          type="text"
-          id="contact-name"
-          name="name"
-          className={styles.input}
-          value={form.name}
-          onChange={(e) => handleChange('name', e.target.value)}
-          onBlur={() => handleBlur('name')}
-          placeholder=" "
-          autoComplete="name"
-          required
-          maxLength={100}
-          aria-invalid={Boolean(errors.name)}
-          aria-describedby={errors.name ? 'contact-name-error' : undefined}
-        />
-        <label htmlFor="contact-name" className={styles.label}>
-          {t('form_name')}
-        </label>
-        <span className={styles.focusRing} />
-        {errors.name && (
-          <span id="contact-name-error" className={styles.errorText} role="alert">
-            {errors.name}
-          </span>
-        )}
-      </div>
+    <form className={styles.form} onSubmit={handleSubmit} aria-busy={status === 'loading'} noValidate>
+      <div className={styles.fields}>
+        {/* Name */}
+        <div className={`${styles.field} ${errors.name ? styles.hasError : ''}`}>
+          <label htmlFor="contact-name" className={styles.label}>
+            {t('form_name')}
+          </label>
+          <input
+            type="text"
+            id="contact-name"
+            name="name"
+            className={styles.input}
+            value={form.name}
+            onChange={(e) => handleChange('name', e.target.value)}
+            onBlur={() => handleBlur('name')}
+            placeholder={t('placeholder_name')}
+            disabled={status === 'loading'}
+            autoComplete="name"
+            required
+            maxLength={100}
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? 'contact-name-error' : undefined}
+          />
+          {errors.name && (
+            <span id="contact-name-error" className={styles.errorText} role="alert">
+              {errors.name}
+            </span>
+          )}
+        </div>
 
-      {/* Email */}
-      <div className={`${styles.field} ${errors.email ? styles.hasError : ''} ${form.email ? styles.filled : ''}`}>
-        <input
-          type="email"
-          id="contact-email"
-          name="email"
-          className={styles.input}
-          value={form.email}
-          onChange={(e) => handleChange('email', e.target.value)}
-          onBlur={() => handleBlur('email')}
-          placeholder=" "
-          autoComplete="email"
-          required
-          maxLength={254}
-          aria-invalid={Boolean(errors.email)}
-          aria-describedby={errors.email ? 'contact-email-error' : undefined}
-        />
-        <label htmlFor="contact-email" className={styles.label}>
-          {t('form_email')}
-        </label>
-        <span className={styles.focusRing} />
-        {errors.email && (
-          <span id="contact-email-error" className={styles.errorText} role="alert">
-            {errors.email}
-          </span>
-        )}
+        {/* Email */}
+        <div className={`${styles.field} ${errors.email ? styles.hasError : ''}`}>
+          <label htmlFor="contact-email" className={styles.label}>
+            {t('form_email')}
+          </label>
+          <input
+            type="email"
+            id="contact-email"
+            name="email"
+            className={styles.input}
+            value={form.email}
+            onChange={(e) => handleChange('email', e.target.value)}
+            onBlur={() => handleBlur('email')}
+            placeholder={t('placeholder_email')}
+            disabled={status === 'loading'}
+            autoComplete="email"
+            required
+            maxLength={254}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? 'contact-email-error' : undefined}
+          />
+          {errors.email && (
+            <span id="contact-email-error" className={styles.errorText} role="alert">
+              {errors.email}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Message */}
-      <div className={`${styles.field} ${errors.message ? styles.hasError : ''} ${form.message ? styles.filled : ''}`}>
+      <div className={`${styles.field} ${errors.message ? styles.hasError : ''}`}>
+        <label htmlFor="contact-message" className={styles.label}>
+          {t('form_message')}
+        </label>
         <textarea
           id="contact-message"
           className={`${styles.input} ${styles.textarea}`}
@@ -167,17 +171,14 @@ export default function ContactForm() {
           value={form.message}
           onChange={(e) => handleChange('message', e.target.value)}
           onBlur={() => handleBlur('message')}
-          placeholder=" "
+          placeholder={t('placeholder_message')}
+          disabled={status === 'loading'}
           rows={5}
           required
           maxLength={5000}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? 'contact-message-error' : undefined}
         />
-        <label htmlFor="contact-message" className={styles.label}>
-          {t('form_message')}
-        </label>
-        <span className={styles.focusRing} />
         {errors.message && (
           <span id="contact-message-error" className={styles.errorText} role="alert">
             {errors.message}
@@ -186,23 +187,14 @@ export default function ContactForm() {
       </div>
 
       {/* Submit */}
-      <div className={styles.submitRow}>
-        <Button
-          variant="primary"
-          size="lg"
-          type="submit"
-          disabled={status === 'loading'}
-          icon={
-            status === 'loading' ? (
-              <Loader2 size={18} className={styles.spinner} />
-            ) : (
-              <Send size={18} />
-            )
-          }
-        >
-          {status === 'loading' ? labelSending : t('form_submit')}
-        </Button>
-      </div>
+      <button
+        className={styles.submitButton}
+        type="submit"
+        disabled={status === 'loading'}
+      >
+        {status === 'loading' ? <Loader2 size={18} className={styles.spinner} aria-hidden="true" /> : <Send size={18} aria-hidden="true" />}
+        {status === 'loading' ? labelSending : t('form_submit')}
+      </button>
 
       {/* Toast */}
       {status === 'success' && (
@@ -211,7 +203,7 @@ export default function ContactForm() {
           role="status"
           aria-live="polite"
         >
-          <CheckCircle size={18} />
+          <CheckCircle size={18} aria-hidden="true" />
           <span>{t('form_success')}</span>
         </div>
       )}
@@ -221,7 +213,7 @@ export default function ContactForm() {
           role="alert"
           aria-live="assertive"
         >
-          <AlertCircle size={18} />
+          <AlertCircle size={18} aria-hidden="true" />
           <span>{t('form_error')}</span>
         </div>
       )}

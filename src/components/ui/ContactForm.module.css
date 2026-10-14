@@ -1,183 +1,148 @@
-/* ===== Contact Form ===== */
-
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
-  max-width: 560px;
+  gap: 20px;
   width: 100%;
 }
 
-/* ===== Field Container ===== */
-
-.field {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
-/* ===== Input ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
 
 .input {
   width: 100%;
-  padding: 18px var(--spacing-md) 8px;
-  font-family: var(--font-body);
-  font-size: var(--text-base);
+  min-width: 0;
+  min-height: 50px;
+  padding: 13px 14px;
+  border: 1px solid var(--border-color-strong);
+  border-radius: 12px;
+  background: var(--bg-base);
   color: var(--text-primary);
-  background: var(--bg-surface);
-  border: 1.5px solid var(--border-color-strong);
-  border-radius: var(--radius-md);
-  outline: none;
-  transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-.input::placeholder {
-  color: transparent;
-}
-
-.textarea {
-  resize: vertical;
-  min-height: 130px;
-  line-height: 1.6;
-}
-
-/* ===== Floating Label ===== */
-
-.label {
-  position: absolute;
-  left: var(--spacing-md);
-  top: 14px;
+  font: inherit;
   font-size: var(--text-base);
-  color: var(--text-tertiary);
-  pointer-events: none;
-  transition:
-    top var(--transition-fast),
-    font-size var(--transition-fast),
-    color var(--transition-fast);
-  transform-origin: left top;
-}
-
-/* Label floats when input is focused or has content */
-.input:focus ~ .label,
-.input:not(:placeholder-shown) ~ .label,
-.filled .label {
-  top: 6px;
-  font-size: var(--text-xs);
-  color: var(--color-primary-text);
-}
-
-/* ===== Focus Ring ===== */
-
-.focusRing {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  border-radius: var(--radius-md);
-  pointer-events: none;
-  border: 2px solid transparent;
+  line-height: 1.5;
+  appearance: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.input:focus ~ .focusRing {
-  border-color: var(--color-primary-text);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+.input::placeholder {
+  color: var(--text-secondary);
+  opacity: 1;
 }
 
-/* ===== Error State ===== */
+.input:focus {
+  border-color: var(--color-primary-text);
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  background: var(--bg-surface);
+}
+
+.input:disabled {
+  cursor: wait;
+}
+
+.textarea {
+  min-height: 176px;
+  resize: vertical;
+  line-height: 1.7;
+}
 
 .hasError .input {
   border-color: var(--color-error-text);
 }
 
-.hasError .input:focus ~ .focusRing {
-  border-color: var(--color-error-text);
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
-}
-
-.hasError .input:focus ~ .label,
-.hasError .input:not(:placeholder-shown) ~ .label {
-  color: var(--color-error-text);
+.hasError .input:focus {
+  outline-color: var(--color-error-text);
 }
 
 .errorText {
   font-size: var(--text-xs);
+  line-height: 1.6;
   color: var(--color-error-text);
-  margin-top: 6px;
-  padding-left: 2px;
 }
 
-/* ===== Submit Row ===== */
-
-.submitRow {
-  display: flex;
-  justify-content: flex-start;
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 20px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  color: var(--text-on-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.18);
 }
 
-/* ===== Spinner ===== */
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.submitButton:disabled {
+  cursor: wait;
+  box-shadow: none;
 }
 
 .spinner {
-  animation: spin 1s linear infinite;
+  animation: contactSpin 1s linear infinite;
 }
 
-/* ===== Toast ===== */
+@keyframes contactSpin {
+  to { transform: rotate(360deg); }
+}
 
 .toast {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--radius-md);
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid;
+  border-radius: 12px;
   font-size: var(--text-sm);
-  font-weight: 500;
-  animation: slideInToast 0.3s ease-out;
+  line-height: 1.7;
+}
+
+.toast svg {
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
 .toastSuccess {
-  background-color: rgba(34, 197, 94, 0.1);
+  border-color: rgba(4, 120, 87, 0.2);
+  background: rgba(4, 120, 87, 0.06);
   color: var(--color-success-text);
-  border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .toastError {
-  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(185, 28, 28, 0.2);
+  background: rgba(185, 28, 28, 0.06);
   color: var(--color-error-text);
-  border: 1px solid rgba(239, 68, 68, 0.3);
 }
-
-@keyframes slideInToast {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== Responsive ===== */
 
 @media (max-width: 640px) {
-  .submitRow {
-    justify-content: stretch;
+  .fields {
+    grid-template-columns: minmax(0, 1fr);
   }
+}
 
-  .submitRow > * {
-    width: 100%;
+@media (hover: hover) and (pointer: fine) {
+  .submitButton:not(:disabled):hover {
+    background: var(--color-primary-hover);
   }
 }
