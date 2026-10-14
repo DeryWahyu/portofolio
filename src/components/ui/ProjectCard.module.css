@@ -29,33 +29,62 @@
 .thumbnailWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--bg-elevated);
+  background: #f8fafc;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .thumbnailImage {
   object-fit: contain !important;
   width: 100%;
   height: 100%;
-  transition: transform var(--transition-slow);
-}
-
-.card:hover .thumbnailImage {
-  transform: scale(1.02);
 }
 
 /* Portrait Device Mockup Canvas */
 .portraitWrapper {
-  background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.08) 0%, rgba(2, 132, 199, 0.03) 60%, var(--bg-elevated) 100%);
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
+  background-color: #ebf3ff;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.22) 0%, rgba(2, 132, 199, 0.12) 45%, transparent 75%),
+    radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.16) 1.2px, transparent 0),
+    linear-gradient(165deg, #eff6ff 0%, #dbeafe 50%, #e0f2fe 100%);
+  background-size: 100% 100%, 16px 16px, 100% 100%;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.portraitWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed rgba(37, 99, 235, 0.22);
+  border-radius: 12px;
+  pointer-events: none;
+  transition: border-color var(--transition-base);
+}
+
+.card:hover .portraitWrapper::before {
+  border-color: rgba(37, 99, 235, 0.42);
+}
+
+.portraitWrapper::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.4) 0%, transparent 70%);
+  filter: blur(14px);
+  pointer-events: none;
 }
 
 /* Single Phone Mockup */
@@ -66,6 +95,7 @@
   align-items: center;
   justify-content: center;
   padding: 8px 0;
+  z-index: 1;
 }
 
 .phoneFrame {
@@ -74,15 +104,15 @@
   aspect-ratio: 9 / 20;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 18px -3px rgba(15, 23, 42, 0.16), 0 2px 6px -1px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 8px 22px -3px rgba(15, 23, 42, 0.2), 0 3px 8px -1px rgba(37, 99, 235, 0.12);
   border: 1.5px solid rgba(255, 255, 255, 0.95);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   background: #000;
 }
 
 .card:hover .phoneFrame {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 12px 24px -3px rgba(37, 99, 235, 0.22);
+  transform: scale(1.02);
+  box-shadow: 0 12px 26px -3px rgba(37, 99, 235, 0.26);
 }
 
 /* 3-Mockup Trio Showcase */
@@ -94,6 +124,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 1;
 }
 
 .trioPhone {
@@ -110,38 +141,38 @@
 .trioPhoneLeft {
   transform: translateX(-34px) translateY(3px) scale(0.85);
   z-index: 1;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
   filter: brightness(0.96);
 }
 
 .trioPhoneCenter {
   transform: translateX(0) translateY(0) scale(1);
   z-index: 3;
-  box-shadow: 0 10px 24px -2px rgba(15, 23, 42, 0.22), 0 3px 8px -2px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 28px -2px rgba(15, 23, 42, 0.25), 0 4px 10px -2px rgba(37, 99, 235, 0.12);
 }
 
 .trioPhoneRight {
   transform: translateX(34px) translateY(3px) scale(0.85);
   z-index: 2;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
   filter: brightness(0.96);
 }
 
-/* Dynamic Fan-out on Hover */
+/* Dynamic Fan-out on Hover (No vertical shift up) */
 .card:hover .trioPhoneLeft {
-  transform: translateX(-44px) translateY(0) scale(0.88);
-  box-shadow: 0 8px 18px -2px rgba(37, 99, 235, 0.2);
+  transform: translateX(-42px) translateY(3px) scale(0.88);
+  box-shadow: 0 10px 22px -2px rgba(37, 99, 235, 0.22);
   filter: brightness(1);
 }
 
 .card:hover .trioPhoneCenter {
-  transform: translateX(0) translateY(-4px) scale(1.03);
-  box-shadow: 0 14px 28px -3px rgba(37, 99, 235, 0.26);
+  transform: translateX(0) translateY(0) scale(1.02);
+  box-shadow: 0 16px 32px -3px rgba(37, 99, 235, 0.28);
 }
 
 .card:hover .trioPhoneRight {
-  transform: translateX(44px) translateY(0) scale(0.88);
-  box-shadow: 0 8px 18px -2px rgba(37, 99, 235, 0.2);
+  transform: translateX(42px) translateY(3px) scale(0.88);
+  box-shadow: 0 10px 22px -2px rgba(37, 99, 235, 0.22);
   filter: brightness(1);
 }
 

@@ -36,7 +36,7 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
         delay: index * 0.1,
         ease: [0.25, 0.1, 0.25, 1],
       }}
-      whileHover={{ y: -6 }}
+      whileHover={{ scale: 1.025 }}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -57,6 +57,7 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
                   alt={`${project.title} preview 1`}
                   fill
                   sizes="120px"
+                  style={{ objectFit: 'contain' }}
                   className={styles.phoneImage}
                 />
               </div>
@@ -66,6 +67,7 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
                   alt={`${project.title} main preview`}
                   fill
                   sizes="140px"
+                  style={{ objectFit: 'contain' }}
                   className={styles.phoneImage}
                 />
               </div>
@@ -75,6 +77,7 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
                   alt={`${project.title} preview 3`}
                   fill
                   sizes="120px"
+                  style={{ objectFit: 'contain' }}
                   className={styles.phoneImage}
                 />
               </div>
@@ -87,6 +90,7 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
+                  style={{ objectFit: 'contain' }}
                   className={styles.phoneImage}
                 />
               </div>
@@ -97,6 +101,7 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
               alt={project.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: 'contain' }}
               className={styles.thumbnailImage}
             />
           )
