@@ -32,15 +32,20 @@
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .thumbnailImage {
-  object-fit: cover;
+  object-fit: contain !important;
+  width: 100%;
+  height: 100%;
   transition: transform var(--transition-slow);
 }
 
 .card:hover .thumbnailImage {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* Portrait Device Mockup Canvas */
@@ -49,6 +54,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Single Phone Mockup */
@@ -58,24 +65,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
 .phoneFrame {
   position: relative;
   height: 92%;
-  aspect-ratio: 9 / 19.5;
-  border-radius: 14px;
+  aspect-ratio: 9 / 20;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.16), 0 2px 6px -1px rgba(15, 23, 42, 0.08);
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 18px -3px rgba(15, 23, 42, 0.16), 0 2px 6px -1px rgba(15, 23, 42, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   background: #000;
 }
 
 .card:hover .phoneFrame {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 14px 28px -4px rgba(37, 99, 235, 0.22), 0 4px 10px -2px rgba(15, 23, 42, 0.1);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 24px -3px rgba(37, 99, 235, 0.22);
 }
 
 /* 3-Mockup Trio Showcase */
@@ -91,56 +98,57 @@
 
 .trioPhone {
   position: absolute;
-  height: 84%;
-  aspect-ratio: 9 / 19.5;
-  border-radius: 12px;
+  height: 88%;
+  aspect-ratio: 9 / 20;
+  border-radius: 11px;
   overflow: hidden;
   border: 1.5px solid rgba(255, 255, 255, 0.95);
   background: #000;
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, filter 0.4s ease;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease, filter 0.35s ease;
 }
 
 .trioPhoneLeft {
-  transform: translateX(-40px) translateY(5px) scale(0.82) rotate(-5deg);
+  transform: translateX(-34px) translateY(3px) scale(0.85);
   z-index: 1;
-  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.18);
-  filter: brightness(0.95);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+  filter: brightness(0.96);
 }
 
 .trioPhoneCenter {
   transform: translateX(0) translateY(0) scale(1);
   z-index: 3;
-  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.25), 0 4px 10px -2px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 10px 24px -2px rgba(15, 23, 42, 0.22), 0 3px 8px -2px rgba(15, 23, 42, 0.08);
 }
 
 .trioPhoneRight {
-  transform: translateX(40px) translateY(5px) scale(0.82) rotate(5deg);
+  transform: translateX(34px) translateY(3px) scale(0.85);
   z-index: 2;
-  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.18);
-  filter: brightness(0.95);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+  filter: brightness(0.96);
 }
 
 /* Dynamic Fan-out on Hover */
 .card:hover .trioPhoneLeft {
-  transform: translateX(-48px) translateY(2px) scale(0.86) rotate(-8deg);
-  box-shadow: 0 12px 22px -3px rgba(37, 99, 235, 0.22);
+  transform: translateX(-44px) translateY(0) scale(0.88);
+  box-shadow: 0 8px 18px -2px rgba(37, 99, 235, 0.2);
   filter: brightness(1);
 }
 
 .card:hover .trioPhoneCenter {
-  transform: translateX(0) translateY(-6px) scale(1.05);
-  box-shadow: 0 16px 36px -4px rgba(37, 99, 235, 0.28), 0 6px 14px -2px rgba(15, 23, 42, 0.12);
+  transform: translateX(0) translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 28px -3px rgba(37, 99, 235, 0.26);
 }
 
 .card:hover .trioPhoneRight {
-  transform: translateX(48px) translateY(2px) scale(0.86) rotate(8deg);
-  box-shadow: 0 12px 22px -3px rgba(37, 99, 235, 0.22);
+  transform: translateX(44px) translateY(0) scale(0.88);
+  box-shadow: 0 8px 18px -2px rgba(37, 99, 235, 0.2);
   filter: brightness(1);
 }
 
 .phoneImage {
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain !important;
+  width: 100%;
+  height: 100%;
 }
 
 .thumbnailPlaceholder {

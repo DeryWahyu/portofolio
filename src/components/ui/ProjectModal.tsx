@@ -118,7 +118,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                         alt={`${project.title} preview 1`}
                         fill
                         sizes="160px"
-                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        style={{ objectFit: 'contain' }}
                         priority
                       />
                     </div>
@@ -128,7 +128,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                         alt={`${project.title} main preview`}
                         fill
                         sizes="180px"
-                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        style={{ objectFit: 'contain' }}
                         priority
                       />
                     </div>
@@ -138,7 +138,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                         alt={`${project.title} preview 3`}
                         fill
                         sizes="160px"
-                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        style={{ objectFit: 'contain' }}
                         priority
                       />
                     </div>
@@ -151,7 +151,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                         alt={project.title}
                         fill
                         sizes="(max-width: 700px) 240px, 280px"
-                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        style={{ objectFit: 'contain' }}
                         priority
                       />
                     </div>
@@ -163,7 +163,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                       alt={project.title}
                       fill
                       sizes="(max-width: 700px) calc(100vw - 16px), 700px"
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: 'contain' }}
                       className={styles.thumbnailImage}
                       priority
                     />
