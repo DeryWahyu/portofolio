@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { Award } from 'lucide-react';
+import { ArrowUpRight, Award, BriefcaseBusiness, Building2, CalendarDays, UsersRound } from 'lucide-react';
 import type { Experience } from '@/data/experiences';
 import AnimateOnScroll from './AnimateOnScroll';
 import ImageLightbox from './ImageLightbox';
@@ -20,6 +20,7 @@ export default function ExperienceCard({ experience, index = 0 }: ExperienceCard
   const [showCertificate, setShowCertificate] = useState(false);
 
   const typeLabel = experience.type === 'magang' ? t('type_magang') : t('type_organisasi');
+  const TypeIcon = experience.type === 'magang' ? BriefcaseBusiness : UsersRound;
   const roleText = locale === 'id' ? experience.role.id : experience.role.en;
   const descriptionText = experience.description
     ? (locale === 'id' ? experience.description.id : experience.description.en)
@@ -31,18 +32,28 @@ export default function ExperienceCard({ experience, index = 0 }: ExperienceCard
 
   return (
     <>
-      <AnimateOnScroll variant="fadeUp" delay={index * 0.1}>
-        <div className={`${styles.card} ${styles[experience.type]}`}>
+      <AnimateOnScroll variant="fadeUp" delay={index * 0.1} className={`${styles.entry} ${styles[experience.type]}`}>
+        <span className={styles.timelineMarker} aria-hidden="true">
+          <TypeIcon size={22} />
+        </span>
+        <article className={styles.card}>
           <div className={styles.cardContent}>
             <div className={styles.textContent}>
               <div className={styles.header}>
-                <h3 className={styles.organization}>{experience.organization}</h3>
-                <span className={`${styles.typeBadge} ${styles[`badge_${experience.type}`]}`}>
+                <span className={styles.typeBadge}>
+                  <TypeIcon size={14} aria-hidden="true" />
                   {typeLabel}
                 </span>
+                <span className={styles.period}>
+                  <CalendarDays size={15} aria-hidden="true" />
+                  <span>{experience.period}</span>
+                </span>
               </div>
-              <p className={styles.role}>{roleText}</p>
-              <span className={styles.period}>{experience.period}</span>
+              <h3 className={styles.role}>{roleText}</h3>
+              <p className={styles.organization}>
+                <Building2 size={16} aria-hidden="true" />
+                <span>{experience.organization}</span>
+              </p>
               {descriptionText && <p className={styles.description}>{descriptionText}</p>}
             </div>
 
@@ -59,20 +70,21 @@ export default function ExperienceCard({ experience, index = 0 }: ExperienceCard
                       src={experience.certificate.thumbnail}
                       alt={certificateAlt}
                       fill
-                      sizes="(max-width: 640px) calc(100vw - 80px), 240px"
+                      sizes="(max-width: 640px) calc(100vw - 120px), 220px"
                       quality={72}
                       className={styles.certImage}
                     />
-                    <span className={styles.certOverlayHint} aria-hidden="true">
-                      <Award size={20} />
-                      <span>{certificateLabel}</span>
-                    </span>
+                  </span>
+                  <span className={styles.certFooter}>
+                    <Award size={16} aria-hidden="true" />
+                    <span>{certificateLabel}</span>
+                    <ArrowUpRight size={16} aria-hidden="true" />
                   </span>
                 </button>
               </div>
             )}
           </div>
-        </div>
+        </article>
       </AnimateOnScroll>
 
       {experience.certificate && showCertificate && (

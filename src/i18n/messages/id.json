@@ -7,7 +7,13 @@
     "skills": "Keahlian",
     "experience": "Pengalaman",
     "certifications": "Sertifikasi",
-    "contact": "Kontak"
+    "contact": "Kontak",
+    "menu_title": "Navigasi",
+    "menu_subtitle": "Jelajahi portofolio saya",
+    "open_menu": "Buka menu navigasi",
+    "close_menu": "Tutup menu navigasi",
+    "switch_language": "Ganti bahasa ke {language}",
+    "language": "Bahasa"
   },
   "hero": {
     "greeting": "Halo, saya",
@@ -53,6 +59,9 @@
     "subtitle": "Perjalanan organisasi dan profesional saya",
     "type_organisasi": "Organisasi",
     "type_magang": "Magang",
+    "filter_all": "Semua",
+    "filter_label": "Filter pengalaman",
+    "list_label": "Daftar pengalaman",
     "view_certificate": "Lihat Sertifikat",
     "close_certificate": "Tutup tampilan sertifikat",
     "loading_certificate": "Memuat gambar sertifikat…"

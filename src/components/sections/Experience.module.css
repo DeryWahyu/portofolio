@@ -2,11 +2,91 @@
   padding: var(--section-padding) 0;
 }
 
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-10);
+}
+
+.filterButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.filterCount {
+  display: grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  padding-inline: 5px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  font-size: var(--text-xs);
+}
+
+.filterActive {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--text-on-primary);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+}
+
+.filterActive .filterCount {
+  background: rgba(0, 0, 0, 0.12);
+}
+
 .list {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-6);
-  max-width: 800px;
+  max-width: 1100px;
   margin-inline: auto;
-  margin-top: var(--spacing-10);
+  list-style: none;
+}
+
+.timelineItem {
+  position: relative;
+  min-width: 0;
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 46px;
+  bottom: -48px;
+  width: 1px;
+  background: var(--border-color-strong);
+  pointer-events: none;
+}
+
+.timelineItem:last-child::before {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .filterButton {
+    gap: 6px;
+    padding-inline: 12px;
+    font-size: var(--text-xs);
+  }
+
+  .timelineItem::before {
+    left: 14px;
+    top: 32px;
+    bottom: -44px;
+  }
 }

@@ -373,6 +373,11 @@ body {
     color var(--transition-slow);
 }
 
+/* Keep entrance animations from widening the mobile viewport. */
+main {
+  overflow-x: clip;
+}
+
 /* -------------------------------------------------------
    SELECTION
    ------------------------------------------------------- */

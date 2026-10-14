@@ -7,7 +7,13 @@
     "skills": "Skills",
     "experience": "Experience",
     "certifications": "Certifications",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu_title": "Navigation",
+    "menu_subtitle": "Explore my portfolio",
+    "open_menu": "Open navigation menu",
+    "close_menu": "Close navigation menu",
+    "switch_language": "Switch language to {language}",
+    "language": "Language"
   },
   "hero": {
     "greeting": "Hi, I'm",
@@ -53,6 +59,9 @@
     "subtitle": "My organizational and professional journey",
     "type_organisasi": "Organization",
     "type_magang": "Internship",
+    "filter_all": "All",
+    "filter_label": "Filter experience",
+    "list_label": "Experience list",
     "view_certificate": "View Certificate",
     "close_certificate": "Close certificate viewer",
     "loading_certificate": "Loading certificate image…"
