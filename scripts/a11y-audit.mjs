@@ -5,7 +5,7 @@ import { chromium } from 'playwright-core';
 const require = createRequire(import.meta.url);
 const axePath = require.resolve('axe-core/axe.min.js');
 const baseUrl = process.env.A11Y_BASE_URL ?? 'http://127.0.0.1:3000';
-const theme = process.env.A11Y_THEME ?? 'dark';
+const theme = process.env.A11Y_THEME ?? 'light';
 const viewportName = process.env.A11Y_VIEWPORT ?? 'desktop';
 const viewports = {
   desktop: { width: 1440, height: 1000 },

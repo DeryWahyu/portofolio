@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect, useSyncExternalStore } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
-import { Sun, Moon, Languages } from 'lucide-react';
+import { Languages } from 'lucide-react';
 import { useRouter, usePathname } from '@/i18n/routing';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import styles from './Navbar.module.css';
@@ -18,27 +17,12 @@ const NAV_ITEMS = [
   'contact',
 ];
 
-// SSR-safe mounted check using useSyncExternalStore
-function subscribe() {
-  return () => {};
-}
-
-function getSnapshot() {
-  return true;
-}
-
-function getServerSnapshot() {
-  return false;
-}
-
 export function Navbar() {
   const t = useTranslations('nav');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
 
-  const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -67,10 +51,6 @@ export function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   const toggleLanguage = () => {
     const nextLocale = locale === 'id' ? 'en' : 'id';
@@ -123,17 +103,6 @@ export function Navbar() {
         </nav>
 
         <div className={styles.controls}>
-          {/* Theme Toggle */}
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              className={styles.toggleBtn}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-          )}
-
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}

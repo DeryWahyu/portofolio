@@ -86,7 +86,8 @@ export default async function LocaleLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ThemeProvider
         attribute="data-theme"
-        defaultTheme="dark"
+        forcedTheme="light"
+        defaultTheme="light"
         enableSystem={false}
         disableTransitionOnChange={false}
       >

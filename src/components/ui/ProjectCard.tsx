@@ -47,21 +47,34 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
       }}
     >
       {/* Thumbnail */}
-      <div className={styles.thumbnailWrapper}>
+      <div className={`${styles.thumbnailWrapper} ${project.orientation === 'portrait' ? styles.portraitWrapper : ''}`}>
         {project.thumbnail ? (
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className={styles.thumbnailImage}
-          />
+          project.orientation === 'portrait' ? (
+            <div className={styles.phoneMockupContainer}>
+              <div className={styles.phoneFrame}>
+                <Image
+                  src={project.thumbnail}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className={styles.phoneImage}
+                />
+              </div>
+            </div>
+          ) : (
+            <Image
+              src={project.thumbnail}
+              alt={project.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className={styles.thumbnailImage}
+            />
+          )
         ) : (
           <div className={styles.thumbnailPlaceholder}>
             <span className={styles.placeholderText}>{project.title[0]}</span>
           </div>
         )}
-
       </div>
 
       {/* Content */}

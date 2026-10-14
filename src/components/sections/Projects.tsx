@@ -40,19 +40,21 @@ export function Projects() {
         />
 
         {/* Filter Navigation */}
-        <div className={styles.filters}>
-          {filterTabs.map((tab) => {
-            const isActive = activeFilter === tab.key;
-            return (
-              <button
-                key={tab.key}
-                onClick={() => handleFilterChange(tab.key)}
-                className={`${styles.filterBtn} ${isActive ? styles.filterBtnActive : ''}`}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
+        <div className={styles.filtersWrapper}>
+          <div className={styles.filters}>
+            {filterTabs.map((tab) => {
+              const isActive = activeFilter === tab.key;
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => handleFilterChange(tab.key)}
+                  className={`${styles.filterBtn} ${isActive ? styles.filterBtnActive : ''}`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Projects Grid */}

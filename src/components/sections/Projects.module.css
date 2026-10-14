@@ -4,46 +4,82 @@
   transition: background-color var(--transition-normal);
 }
 
-.filters {
+.filtersWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-3);
   margin-top: var(--spacing-8);
   margin-bottom: var(--spacing-12);
-  flex-wrap: wrap;
+  width: 100%;
+}
+
+.filters {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  gap: 6px;
+  max-width: 100%;
 }
 
 .filterBtn {
   font-family: var(--font-heading);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  padding: 0.625rem 1.5rem;
+  padding: 0.625rem 1.4rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-surface);
+  border: 1px solid transparent;
+  background-color: transparent;
   color: var(--text-secondary);
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filterBtn:hover {
-  color: var(--text-primary);
-  border-color: var(--color-primary-text);
-  background-color: var(--bg-elevated);
-  transform: translateY(-2px);
+  color: var(--color-primary-text);
+  background-color: var(--color-primary-light);
 }
 
 .filterBtnActive {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   border-color: transparent;
-  color: #ffffff;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
 }
 
 .filterBtnActive:hover {
-  color: #ffffff;
+  color: #ffffff !important;
   background: linear-gradient(135deg, var(--color-primary-hover), var(--color-secondary-hover));
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.38);
+}
+
+/* Mobile responsive filter dock */
+@media (max-width: 640px) {
+  .filtersWrapper {
+    margin-top: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+    padding: 2px;
+  }
+
+  .filters {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .filterBtn {
+    padding: 0.5rem 0.35rem;
+    font-size: var(--font-size-xs);
+    text-align: center;
+  }
 }
 
 .grid {

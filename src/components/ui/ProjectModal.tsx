@@ -108,19 +108,34 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             </button>
 
             {/* Thumbnail */}
-            <div className={styles.thumbnailWrapper}>
+            <div className={`${styles.thumbnailWrapper} ${project.orientation === 'portrait' ? styles.modalPortraitWrapper : ''}`}>
               {project.thumbnail ? (
-                <div style={{ position: 'relative', width: '100%', height: '100%', minHeight: '260px' }}>
-                  <Image
-                    src={project.thumbnail}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 700px) calc(100vw - 16px), 700px"
-                    style={{ objectFit: 'cover' }}
-                    className={styles.thumbnailImage}
-                    priority
-                  />
-                </div>
+                project.orientation === 'portrait' ? (
+                  <div className={styles.modalPhoneContainer}>
+                    <div className={styles.modalPhoneFrame}>
+                      <Image
+                        src={project.thumbnail}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 700px) 240px, 280px"
+                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        priority
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div style={{ position: 'relative', width: '100%', height: '100%', minHeight: '260px' }}>
+                    <Image
+                      src={project.thumbnail}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 700px) calc(100vw - 16px), 700px"
+                      style={{ objectFit: 'cover' }}
+                      className={styles.thumbnailImage}
+                      priority
+                    />
+                  </div>
+                )
               ) : (
                 <div className={styles.thumbnailPlaceholder}>
                   <span className={styles.placeholderText}>{project.title[0]}</span>

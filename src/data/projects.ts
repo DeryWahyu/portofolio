@@ -17,6 +17,7 @@ export interface Project {
     instagram?: string;
   };
   thumbnail: string;
+  orientation?: 'landscape' | 'portrait';
 }
 
 export const projects: Project[] = [
@@ -35,6 +36,7 @@ export const projects: Project[] = [
       github: 'https://github.com/DeryWahyu/triniStay',
     },
     thumbnail: '/proyek/trinistay.png',
+    orientation: 'landscape',
   },
   {
     slug: 'ruang-tenang',
@@ -52,16 +54,17 @@ export const projects: Project[] = [
       github: 'https://github.com/DeryWahyu/ruang-tenang-api-main',
     },
     thumbnail: '/proyek/ruang-tenang.png',
+    orientation: 'landscape',
   },
   {
     slug: 'cikscoffee',
-    title: 'Ciks Coffee',
+    title: 'Ciks Coffee Web',
     description: {
-      id: 'Sistem manajemen operasional dan transaksi penjualan (POS) terintegrasi berbasis web dan mobile. Solusi all-in-one untuk pengelolaan bisnis kedai kopi mulai dari inventaris, kasir, hingga laporan keuangan real-time.',
-      en: 'An integrated web and mobile-based point-of-sale (POS) and operational management system. An all-in-one solution for coffee shop business management, from inventory and cashier operations to real-time financial reporting.',
+      id: 'Sistem web manajemen operasional dan transaksi penjualan (POS) terintegrasi untuk bisnis kedai kopi Ciks Coffee, mulai dari manajemen inventaris, kasir, hingga laporan analitik keuangan.',
+      en: 'An integrated web-based POS and operational management system for Ciks Coffee business, from inventory and cashier workflows to financial analytics.',
     },
-    techStack: ['Laravel', 'Tailwind CSS', 'Flutter', 'MySQL', 'Firebase'],
-    category: ['web', 'mobile'],
+    techStack: ['Laravel', 'Tailwind CSS', 'MySQL', 'Firebase'],
+    category: ['web'],
     context: 'skripsi',
     status: 'development',
     links: {
@@ -69,6 +72,60 @@ export const projects: Project[] = [
       github: 'https://github.com/DeryWahyu/ciks_coffee_web',
     },
     thumbnail: '/proyek/cikscoffee.png',
+    orientation: 'landscape',
+  },
+  {
+    slug: 'cikscoffee-mobile',
+    title: 'Ciks Coffee Mobile',
+    description: {
+      id: 'Aplikasi kasir (POS) dan self-ordering kopi berbasis Flutter untuk barista dan pelanggan Ciks Coffee. Terintegrasi cloud untuk transaksi instan dan pencetakan struk digital.',
+      en: 'A Flutter-based POS and self-ordering coffee application for Ciks Coffee baristas and customers. Cloud-connected for instant orders and digital receipts.',
+    },
+    techStack: ['Flutter', 'Dart', 'Firebase', 'REST API'],
+    category: ['mobile'],
+    context: 'skripsi',
+    status: 'development',
+    links: {
+      apk: 'https://cikscoffee.my.id',
+      github: 'https://github.com/DeryWahyu/ciks_coffee_web',
+    },
+    thumbnail: '/proyek/Mobile-Cikscoffee.jpeg',
+    orientation: 'portrait',
+  },
+  {
+    slug: 'ruang-tenang-mobile',
+    title: 'Ruang-Tenang Mobile',
+    description: {
+      id: 'Aplikasi pendamping kesehatan mental mobile dengan fitur mood tracker harian, konseling AI 24/7 dengan chatbot empati, serta panduan meditasi dan pernapasan.',
+      en: 'A mobile mental health companion app featuring daily mood tracking, 24/7 empathetic AI counseling, and guided breathing meditation sessions.',
+    },
+    techStack: ['React Native', 'TypeScript', 'Gemini AI', 'Tailwind'],
+    category: ['mobile'],
+    context: 'lomba',
+    status: 'completed',
+    links: {
+      demo: 'https://ruang-tenang.site',
+      github: 'https://github.com/DeryWahyu/ruang-tenang-api-main',
+    },
+    thumbnail: '/proyek/mobile-ruang-tenang.png',
+    orientation: 'portrait',
+  },
+  {
+    slug: 'trinistay-mobile',
+    title: 'TriniStay Mobile',
+    description: {
+      id: 'Aplikasi mobile pencari kos dan teman sekamar di Trini. Dilengkapi algoritma kecocokan gaya hidup, eksplorasi peta kos interaktif, dan chat langsung antar pencari kos.',
+      en: 'A mobile boarding house and roommate finder in Trini. Features lifestyle compatibility matching, interactive map exploration, and direct in-app chat.',
+    },
+    techStack: ['Flutter', 'Dart', 'Google Maps API', 'Supabase'],
+    category: ['mobile'],
+    context: 'tugas',
+    status: 'completed',
+    links: {
+      github: 'https://github.com/DeryWahyu/triniStay',
+    },
+    thumbnail: '/proyek/mobile-trinistay.png',
+    orientation: 'portrait',
   },
   {
     slug: 'video-aftermovie-makrab',
