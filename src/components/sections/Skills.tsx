@@ -21,10 +21,12 @@ export function Skills() {
         <div className={styles.grid}>
           {skillGroups.map((group, idx) => {
             const groupTitle = locale === 'id' ? group.title.id : group.title.en;
+            const groupDescription = locale === 'id' ? group.description.id : group.description.en;
             return (
               <SkillGroup
-                key={groupTitle}
+                key={group.id}
                 title={groupTitle}
+                description={groupDescription}
                 icon={group.icon}
                 items={group.items}
                 index={idx}
