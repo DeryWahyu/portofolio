@@ -110,7 +110,40 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             {/* Thumbnail */}
             <div className={`${styles.thumbnailWrapper} ${project.orientation === 'portrait' ? styles.modalPortraitWrapper : ''}`}>
               {project.thumbnail ? (
-                project.orientation === 'portrait' ? (
+                project.orientation === 'portrait' && project.screenshots && project.screenshots.length >= 3 ? (
+                  <div className={styles.modalTrioContainer}>
+                    <div className={`${styles.modalPhoneFrame} ${styles.modalPhoneSide}`}>
+                      <Image
+                        src={project.screenshots[0]}
+                        alt={`${project.title} preview 1`}
+                        fill
+                        sizes="160px"
+                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        priority
+                      />
+                    </div>
+                    <div className={`${styles.modalPhoneFrame} ${styles.modalPhoneCenter}`}>
+                      <Image
+                        src={project.screenshots[1]}
+                        alt={`${project.title} main preview`}
+                        fill
+                        sizes="180px"
+                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        priority
+                      />
+                    </div>
+                    <div className={`${styles.modalPhoneFrame} ${styles.modalPhoneSide}`}>
+                      <Image
+                        src={project.screenshots[2]}
+                        alt={`${project.title} preview 3`}
+                        fill
+                        sizes="160px"
+                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        priority
+                      />
+                    </div>
+                  </div>
+                ) : project.orientation === 'portrait' ? (
                   <div className={styles.modalPhoneContainer}>
                     <div className={styles.modalPhoneFrame}>
                       <Image
