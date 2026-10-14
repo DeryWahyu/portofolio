@@ -1,7 +1,5 @@
 .experience {
   padding: var(--section-padding) 0;
-  background: linear-gradient(to bottom, var(--bg-surface), var(--bg-base));
-  transition: background-color var(--transition-normal);
 }
 
 .list {

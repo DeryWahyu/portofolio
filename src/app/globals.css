@@ -114,6 +114,9 @@ table {
   --color-bg: #f8fafc;
   --color-surface: #ffffff;
   --color-elevated: #f1f5f9;
+  --color-page-mid: #edf5ff;
+  --color-page-glow: rgba(37, 99, 235, 0.16);
+  --color-page-glow-soft: rgba(14, 165, 233, 0.12);
 
   --color-text-primary: #0f172a;
   --color-text-secondary: #475569;
@@ -133,6 +136,13 @@ table {
   --gradient-primary-hover: linear-gradient(135deg, #1e40af 0%, #0369a1 100%);
   --gradient-accent: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
   --gradient-surface: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --gradient-page:
+    radial-gradient(ellipse 78% 16% at 100% 4%, var(--color-page-glow), transparent 72%),
+    radial-gradient(ellipse 72% 15% at 0% 27%, var(--color-page-glow-soft), transparent 72%),
+    radial-gradient(ellipse 78% 16% at 100% 50%, var(--color-page-glow), transparent 72%),
+    radial-gradient(ellipse 72% 15% at 0% 74%, var(--color-page-glow-soft), transparent 72%),
+    radial-gradient(ellipse 78% 16% at 100% 98%, var(--color-page-glow), transparent 72%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-page-mid) 50%, var(--color-bg) 100%);
   --gradient-glow: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
       rgba(37, 99, 235, 0.06),
       transparent 40%);
@@ -290,6 +300,9 @@ table {
   --color-bg: #0f172a;
   --color-surface: #1e293b;
   --color-elevated: #334155;
+  --color-page-mid: #102039;
+  --color-page-glow: rgba(37, 99, 235, 0.18);
+  --color-page-glow-soft: rgba(14, 165, 233, 0.14);
 
   --color-text-primary: #f8fafc;
   --color-text-secondary: #cbd5e1;
@@ -353,6 +366,8 @@ body {
   font-size: var(--text-base);
   color: var(--color-text-primary);
   background-color: var(--color-bg);
+  background-image: var(--gradient-page);
+  background-repeat: no-repeat;
   transition:
     background-color var(--transition-slow),
     color var(--transition-slow);
