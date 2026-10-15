@@ -18,9 +18,16 @@
   "hero": {
     "greeting": "Halo, saya",
     "headline": "Fullstack Developer & Video Editor",
-    "subtitle": "Mahasiswa Informatika semester 7 yang berfokus membangun aplikasi web end-to-end yang responsif dan andal, sekaligus menciptakan konten video yang kreatif dan menarik.",
+    "subtitle": "Saya membangun aplikasi web dan mobile, serta merangkai cerita lewat video. Dua bidang yang saya tekuni dengan perhatian yang sama pada fungsi dan detail.",
     "cta_projects": "Lihat Proyek",
-    "cta_cv": "Unduh CV"
+    "cta_cv": "Unduh CV",
+    "social_label": "Temui saya di",
+    "portrait_title": "Mahasiswa Informatika",
+    "focus_label": "Bidang yang saya kerjakan",
+    "focus_web": "Pengembangan web",
+    "focus_mobile": "Aplikasi mobile",
+    "focus_video": "Editing video",
+    "cta_about": "Kenali saya lebih dekat"
   },
   "about": {
     "title": "Tentang Saya",

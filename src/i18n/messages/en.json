@@ -18,9 +18,16 @@
   "hero": {
     "greeting": "Hi, I'm",
     "headline": "Fullstack Developer & Video Editor",
-    "subtitle": "Seventh-semester Informatics student focused on building responsive and reliable end-to-end web applications while creating engaging video content.",
+    "subtitle": "I build web and mobile apps, and tell stories through video. Two disciplines I approach with the same care for how things work and the details that matter.",
     "cta_projects": "View Projects",
-    "cta_cv": "Download CV"
+    "cta_cv": "Download CV",
+    "social_label": "Find me on",
+    "portrait_title": "Informatics student",
+    "focus_label": "What I work on",
+    "focus_web": "Web development",
+    "focus_mobile": "Mobile apps",
+    "focus_video": "Video editing",
+    "cta_about": "A little more about me"
   },
   "about": {
     "title": "About Me",

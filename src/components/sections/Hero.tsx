@@ -1,150 +1,166 @@
 'use client';
 
+import type { ComponentType, MouseEvent, PointerEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
-import { Mail, Download } from 'lucide-react';
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
+import { ArrowDown, ArrowUpRight, Download, Mail } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon, InstagramIcon } from '@/components/icons';
-import { Button } from '@/components/ui';
 import { socials } from '@/data/socials';
 import styles from './Hero.module.css';
 
-// Dynamic icon mapping helper
-const iconMap: Record<string, React.ComponentType<{ size?: number }>> = {
+const iconMap: Record<string, ComponentType<{ size?: number }>> = {
   Github: GitHubIcon,
   Linkedin: LinkedInIcon,
   Instagram: InstagramIcon,
-  Mail: Mail,
+  Mail,
 };
+
+const spring = { stiffness: 140, damping: 28, mass: 0.7 };
 
 export function Hero() {
   const t = useTranslations('hero');
+  const reducedMotion = useReducedMotion();
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const photoX = useSpring(pointerX, spring);
+  const photoY = useSpring(pointerY, spring);
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
+  const movePhoto = (event: PointerEvent<HTMLDivElement>) => {
+    if (reducedMotion || event.pointerType !== 'mouse' ||
+        !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    pointerX.set(((event.clientX - bounds.left) / bounds.width - 0.5) * 10);
+    pointerY.set(((event.clientY - bounds.top) / bounds.height - 0.5) * 10);
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring', stiffness: 100, damping: 15 },
-    },
+  const resetPhoto = () => {
+    pointerX.set(0);
+    pointerY.set(0);
   };
 
-  const handleScrollToProjects = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById('projects');
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+  const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const section = document.querySelector(event.currentTarget.hash);
+    if (!section) return;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+    event.preventDefault();
+    const offset = (document.getElementById('main-navbar')?.offsetHeight ?? 72) + 12;
+    window.scrollTo({
+      top: Math.max(0, section.getBoundingClientRect().top + window.scrollY - offset),
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+
+    const heading = section.querySelector('h2');
+    if (heading) {
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
     }
   };
 
   return (
-    <section className={styles.hero}>
-      {/* Glow effects in the background */}
-      <div className={styles.bgBlob1} />
-      <div className={styles.bgBlob2} />
-
+    <section className={styles.hero} aria-labelledby="hero-name">
       <div className={`${styles.container} container`}>
-        {/* Left Content Column */}
-        <motion.div
-          className={styles.content}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.span className={styles.greeting} variants={itemVariants}>
-            {t('greeting')}
-          </motion.span>
+        <div className={styles.layout}>
+          <div className={styles.content}>
+            <p className={styles.greeting}>
+              <span className={styles.greetingLine} aria-hidden="true" />
+              {t('greeting')}
+            </p>
 
-          <motion.h1 className={styles.name} variants={itemVariants}>
-            Dery Wahyu Perdana
-          </motion.h1>
+            <h1 className={styles.name} id="hero-name">
+              <span>Dery Wahyu</span>{' '}
+              <span className={styles.surname}>Perdana<span className={styles.nameDot}>.</span></span>
+            </h1>
 
-          <motion.h2 className={styles.headline} variants={itemVariants}>
-            {t('headline')}
-          </motion.h2>
+            <p className={styles.headline}>{t('headline')}</p>
+            <p className={styles.subtitle}>{t('subtitle')}</p>
 
-          <motion.p className={styles.subtitle} variants={itemVariants}>
-            {t('subtitle')}
-          </motion.p>
+            <div className={styles.actions}>
+              <a href="#projects" className={styles.projectLink} onClick={scrollToSection}>
+                {t('cta_projects')}
+                <ArrowUpRight size={19} aria-hidden="true" />
+              </a>
+              <a
+                href="/cv/CV DERY - Hardvard Style.pdf"
+                download="CV_Dery_Wahyu_Perdana.pdf"
+                className={styles.cvLink}
+              >
+                <Download size={17} aria-hidden="true" />
+                <span>{t('cta_cv')}</span>
+              </a>
+            </div>
 
-          <motion.div className={styles.actions} variants={itemVariants}>
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={handleScrollToProjects}
-            >
-              {t('cta_projects')}
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              href="/cv/CV DERY - Hardvard Style.pdf"
-              download="CV_Dery_Wahyu_Perdana.pdf"
-              icon={<Download size={18} />}
-            >
-              {t('cta_cv')}
-            </Button>
-          </motion.div>
-
-          <motion.div className={styles.socials} variants={itemVariants}>
-            {socials.map((social) => {
-              const IconComponent = iconMap[social.icon] || Mail;
-              return (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  className={styles.socialLink}
-                  title={social.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IconComponent size={20} />
-                </a>
-              );
-            })}
-          </motion.div>
-        </motion.div>
-
-        {/* Right Graphic/Avatar Column */}
-        <motion.div
-          className={styles.imageContainer}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        >
-          <div className={styles.photoFrame}>
-            <div className={styles.photoPlaceholder} style={{ overflow: 'hidden' }}>
-              <Image 
-                src="/Dery.png" 
-                alt="Dery Wahyu Perdana" 
-                width={400} 
-                height={400} 
-                style={{ objectFit: 'cover', objectPosition: 'top', width: '100%', height: '100%', borderRadius: 'inherit' }} 
-                priority
-              />
+            <div className={styles.socials}>
+              <span className={styles.socialLabel}>{t('social_label')}</span>
+              <div className={styles.socialLinks}>
+                {socials.map((social) => {
+                  const Icon = iconMap[social.icon] || Mail;
+                  const external = social.url.startsWith('https://');
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      className={styles.socialLink}
+                      aria-label={social.name}
+                      title={social.name}
+                      target={external ? '_blank' : undefined}
+                      rel={external ? 'noopener noreferrer' : undefined}
+                    >
+                      <span aria-hidden="true"><Icon size={19} /></span>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </motion.div>
+
+          <figure className={styles.portrait}>
+            <div className={styles.photoComposition}>
+              <div className={styles.photoAccent} aria-hidden="true" />
+              <div
+                className={styles.photoWindow}
+                onPointerMove={movePhoto}
+                onPointerLeave={resetPhoto}
+                onPointerCancel={resetPhoto}
+              >
+                <motion.div
+                  className={styles.photoMotion}
+                  style={{ x: reducedMotion ? 0 : photoX, y: reducedMotion ? 0 : photoY }}
+                >
+                  <Image
+                    src="/Dery.png"
+                    alt="Dery Wahyu Perdana"
+                    fill
+                    sizes="(max-width: 479px) calc(100vw - 64px), (max-width: 759px) 400px, (max-width: 1199px) 36vw, 400px"
+                    className={styles.photo}
+                    priority
+                  />
+                </motion.div>
+              </div>
+            </div>
+            <figcaption className={styles.photoCaption}>
+              <span className={styles.captionMark} aria-hidden="true">DW</span>
+              <div>
+                <p className={styles.captionTitle}>{t('portrait_title')}</p>
+                <p className={styles.captionSubtitle}>Universitas Teknologi Yogyakarta</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className={styles.footer}>
+          <ul className={styles.disciplines} aria-label={t('focus_label')}>
+            <li><span aria-hidden="true">01</span>{t('focus_web')}</li>
+            <li><span aria-hidden="true">02</span>{t('focus_mobile')}</li>
+            <li><span aria-hidden="true">03</span>{t('focus_video')}</li>
+          </ul>
+          <a href="#about" className={styles.aboutLink} onClick={scrollToSection}>
+            {t('cta_about')}
+            <span className={styles.aboutArrow}><ArrowDown size={17} aria-hidden="true" /></span>
+          </a>
+        </div>
       </div>
     </section>
   );
