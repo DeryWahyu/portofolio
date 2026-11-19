@@ -1,10 +1,37 @@
 .hero {
   position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   min-height: min(960px, 100svh);
   padding-top: calc(var(--navbar-height) + 72px);
   padding-bottom: 32px;
+  background:
+    radial-gradient(ellipse at 92% 45%, rgba(91, 123, 245, 0.1), transparent 65%),
+    linear-gradient(105deg, #f8fbff 5%, #f4f7ff 48%, #e9eeff 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(78, 111, 208, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 111, 208, 0.09) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.35) 35%, #000 100%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 48px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(transparent, var(--color-bg));
 }
 
 .container {
@@ -165,23 +192,102 @@
 
 .photoComposition {
   position: relative;
-  padding: 0 16px 16px 0;
+  display: grid;
+  place-items: center;
+  /* Preserve the existing stage height so the text column stays in place. */
+  aspect-ratio: 416 / 528.4;
 }
 
-.photoAccent {
+.portraitBackdrop {
   position: absolute;
-  inset: 32px 0 0 32px;
-  border-radius: 24px;
-  background: var(--color-primary-text);
+  inset: 5.5% 0;
+  overflow: hidden;
+  border: 1px solid rgba(100, 132, 222, 0.25);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle, rgba(82, 122, 231, 0.25) 0.8px, transparent 1px),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(124, 153, 243, 0.16));
+  background-size: 14px 14px, 100% 100%;
+  pointer-events: none;
+}
+
+.orbit,
+.orbitInner {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(91, 124, 222, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbitInner {
+  width: 81%;
+  border-color: rgba(91, 124, 222, 0.12);
+}
+
+.orbitDot {
+  position: absolute;
+  top: 8%;
+  right: 22%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4f6ff1;
+}
+
+.cornerMark {
+  position: absolute;
+  top: 7.5%;
+  right: 6%;
+  width: 11px;
+  height: 11px;
+  color: #5471ee;
+}
+
+.cornerMark::before,
+.cornerMark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.cornerMark::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.cornerMarkBottom {
+  inset: auto auto 7.5% 6%;
+}
+
+.photoCard {
+  position: relative;
+  width: 70%;
+  min-width: 0;
+  margin: 0;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  background: #f6f8ff;
+  box-shadow:
+    14px 14px 0 rgba(93, 124, 232, 0.18),
+    0 24px 44px rgba(35, 61, 137, 0.2);
 }
 
 .photoWindow {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 4.5;
-  border: 1px solid var(--color-border);
-  border-radius: 24px;
-  background: #eff3fb;
+  aspect-ratio: 13 / 14;
+  border-radius: 12px;
+  background: #e0e7fb;
 }
 
 .photoMotion {
@@ -197,28 +303,33 @@
 .photoCaption {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 22px 16px 0 0;
+  gap: 10px;
+  min-height: 48px;
+  padding: 11px 5px 3px;
 }
 
 .captionMark {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
-  border: 1px solid var(--color-border-strong);
+  border-radius: 8px;
+  background: rgba(64, 103, 255, 0.1);
+}
+
+.captionMark::before {
+  content: '';
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  color: var(--color-primary-text);
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  background: #3157f6;
 }
 
 .captionTitle {
   font-size: 13px;
   font-weight: 600;
+  line-height: 1.5;
 }
 
 .captionSubtitle {
@@ -372,9 +483,8 @@
   .actions { margin-top: 24px; }
   .socials { margin-top: 18px; }
   .portrait { justify-self: center; }
-  .photoWindow { aspect-ratio: 4 / 4.1; border-radius: 20px; }
-  .photoAccent { border-radius: 20px; }
-  .photoCaption { margin-top: 18px; }
+  .portraitBackdrop { border-radius: 24px; }
+  .photoCard { width: 78%; }
 
   .footer {
     max-width: 540px;
@@ -392,7 +502,8 @@
   .cvLink { font-size: 13px; gap: 7px; }
   .socials { gap: 4px 10px; }
   .socialLinks { gap: 0; }
-  .captionMark { width: 32px; height: 32px; }
-  .photoCaption { gap: 9px; }
+  .captionMark { width: 22px; height: 22px; }
+  .photoCaption { gap: 8px; padding-inline: 2px; }
+  .captionTitle { font-size: 12px; }
   .captionSubtitle { font-size: 10px; }
 }

@@ -116,38 +116,47 @@ export function Hero() {
             </div>
           </div>
 
-          <figure className={styles.portrait}>
+          <div className={styles.portrait}>
             <div className={styles.photoComposition}>
-              <div className={styles.photoAccent} aria-hidden="true" />
-              <div
-                className={styles.photoWindow}
-                onPointerMove={movePhoto}
-                onPointerLeave={resetPhoto}
-                onPointerCancel={resetPhoto}
-              >
-                <motion.div
-                  className={styles.photoMotion}
-                  style={{ x: reducedMotion ? 0 : photoX, y: reducedMotion ? 0 : photoY }}
+              <div className={styles.portraitBackdrop} aria-hidden="true">
+                <span className={styles.orbit} />
+                <span className={styles.orbitInner} />
+                <span className={styles.orbitDot} />
+                <span className={styles.cornerMark} />
+                <span className={`${styles.cornerMark} ${styles.cornerMarkBottom}`} />
+              </div>
+
+              <figure className={styles.photoCard}>
+                <div
+                  className={styles.photoWindow}
+                  onPointerMove={movePhoto}
+                  onPointerLeave={resetPhoto}
+                  onPointerCancel={resetPhoto}
                 >
-                  <Image
-                    src="/Dery.png"
-                    alt="Dery Wahyu Perdana"
-                    fill
-                    sizes="(max-width: 479px) calc(100vw - 64px), (max-width: 759px) 400px, (max-width: 1199px) 36vw, 400px"
-                    className={styles.photo}
-                    priority
-                  />
-                </motion.div>
-              </div>
+                  <motion.div
+                    className={styles.photoMotion}
+                    style={{ x: reducedMotion ? 0 : photoX, y: reducedMotion ? 0 : photoY }}
+                  >
+                    <Image
+                      src="/Dery.png"
+                      alt="Dery Wahyu Perdana"
+                      fill
+                      sizes="(max-width: 479px) 78vw, (max-width: 759px) 325px, (max-width: 1199px) 26vw, 300px"
+                      className={styles.photo}
+                      priority
+                    />
+                  </motion.div>
+                </div>
+                <figcaption className={styles.photoCaption}>
+                  <span className={styles.captionMark} aria-hidden="true" />
+                  <div>
+                    <p className={styles.captionTitle}>{t('portrait_title')}</p>
+                    <p className={styles.captionSubtitle}>Universitas Teknologi Yogyakarta</p>
+                  </div>
+                </figcaption>
+              </figure>
             </div>
-            <figcaption className={styles.photoCaption}>
-              <span className={styles.captionMark} aria-hidden="true">DW</span>
-              <div>
-                <p className={styles.captionTitle}>{t('portrait_title')}</p>
-                <p className={styles.captionSubtitle}>Universitas Teknologi Yogyakarta</p>
-              </div>
-            </figcaption>
-          </figure>
+          </div>
         </div>
 
         <div className={styles.footer}>
