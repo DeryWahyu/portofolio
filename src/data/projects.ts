@@ -35,6 +35,7 @@ export const projects: Project[] = [
     context: 'lomba',
     status: 'development',
     links: {
+      demo: 'https://satu-platform.my.id',
       github: 'https://github.com/Alfian57/satu-platform',
     },
     thumbnail: '/proyek/SATU-Platform-Web/Satu.png',
@@ -52,6 +53,7 @@ export const projects: Project[] = [
     context: 'lomba',
     status: 'development',
     links: {
+      demo: 'https://gamblock-ai.com',
       github: 'https://github.com/Gamblock-AI/Gamblock-AI-Website',
     },
     thumbnail: '/proyek/Gamblock-AI-Web/Gamblock-AI.png',
@@ -69,6 +71,7 @@ export const projects: Project[] = [
     context: 'lomba',
     status: 'development',
     links: {
+      demo: 'https://ruang-tenang.my.id',
       github: 'https://github.com/DeryWahyu/ruang-tenang-api-main',
     },
     thumbnail: '/proyek/Ruang-Tenang-Web/Ruang-Tenang.png',
@@ -98,11 +101,12 @@ export const projects: Project[] = [
       id: 'GuardianLab adalah platform keamanan digital berbasis AI untuk mendeteksi indikasi phishing pada URL/QR dan menganalisis APK secara statis. Dilengkapi sandbox terisolasi, edukasi interaktif, riwayat investigasi, dan kartu peringatan.',
       en: 'GuardianLab is an AI-powered digital security platform for detecting signs of phishing in URLs and QR codes and performing static APK analysis. It includes an isolated sandbox, interactive education, investigation history, and warning cards.',
     },
-    techStack: ['Next.js', 'AI Logistic Regression'],
+    techStack: ['Next.js', 'Logistic Regression', 'JADX', 'DeepSeek AI'],
     category: ['web'],
     context: 'lomba',
     status: 'development',
     links: {
+      demo: 'https://guardian-lab.alfian-gading.my.id',
       github: 'https://github.com/DeryWahyu/mit-week-guardian-lab.git',
     },
     thumbnail: '/proyek/GuardianLab/GuardianLab.png',
