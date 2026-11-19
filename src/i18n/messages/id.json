@@ -24,9 +24,8 @@
     "social_label": "Temui saya di",
     "portrait_title": "Mahasiswa Informatika",
     "focus_label": "Bidang yang saya kerjakan",
-    "focus_web": "Pengembangan web",
-    "focus_mobile": "Aplikasi mobile",
-    "focus_video": "Editing video",
+    "pause_marquee": "Jeda teks berjalan",
+    "resume_marquee": "Lanjutkan teks berjalan",
     "cta_about": "Kenali saya lebih dekat"
   },
   "about": {

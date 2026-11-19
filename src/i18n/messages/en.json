@@ -24,9 +24,8 @@
     "social_label": "Find me on",
     "portrait_title": "Informatics student",
     "focus_label": "What I work on",
-    "focus_web": "Web development",
-    "focus_mobile": "Mobile apps",
-    "focus_video": "Video editing",
+    "pause_marquee": "Pause scrolling text",
+    "resume_marquee": "Resume scrolling text",
     "cta_about": "A little more about me"
   },
   "about": {

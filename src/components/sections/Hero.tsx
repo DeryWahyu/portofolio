@@ -1,10 +1,11 @@
 'use client';
 
 import type { ComponentType, MouseEvent, PointerEvent } from 'react';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
-import { ArrowDown, ArrowUpRight, Download, Mail } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Download, Mail, Pause, Play } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon, InstagramIcon } from '@/components/icons';
 import { socials } from '@/data/socials';
 import styles from './Hero.module.css';
@@ -17,9 +18,12 @@ const iconMap: Record<string, ComponentType<{ size?: number }>> = {
 };
 
 const spring = { stiffness: 140, damping: 28, mass: 0.7 };
+const disciplines = ['Web Development', 'Software Development', 'UI/UX Design', 'Video Editor'];
 
 export function Hero() {
   const t = useTranslations('hero');
+  const [isMarqueePaused, setIsMarqueePaused] = useState(false);
+  const marqueeActionLabel = t(isMarqueePaused ? 'resume_marquee' : 'pause_marquee');
   const reducedMotion = useReducedMotion();
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
@@ -141,7 +145,7 @@ export function Hero() {
                       src="/Dery.png"
                       alt="Dery Wahyu Perdana"
                       fill
-                      sizes="(max-width: 479px) 78vw, (max-width: 759px) 325px, (max-width: 1199px) 26vw, 300px"
+                      sizes="(max-width: 479px) 86vw, (max-width: 759px) 400px, (max-width: 1099px) 36vw, 384px"
                       className={styles.photo}
                       priority
                     />
@@ -160,11 +164,27 @@ export function Hero() {
         </div>
 
         <div className={styles.footer}>
-          <ul className={styles.disciplines} aria-label={t('focus_label')}>
-            <li><span aria-hidden="true">01</span>{t('focus_web')}</li>
-            <li><span aria-hidden="true">02</span>{t('focus_mobile')}</li>
-            <li><span aria-hidden="true">03</span>{t('focus_video')}</li>
-          </ul>
+          <div className={styles.marquee}>
+            <div className={styles.marqueeViewport}>
+              <div className={styles.marqueeTrack} data-paused={isMarqueePaused}>
+                <ul className={styles.disciplines} aria-label={t('focus_label')} lang="en">
+                  {disciplines.map((discipline) => <li key={discipline}>{discipline}</li>)}
+                </ul>
+                <ul className={`${styles.disciplines} ${styles.marqueeCopy}`} aria-hidden="true">
+                  {disciplines.map((discipline) => <li key={discipline}>{discipline}</li>)}
+                </ul>
+              </div>
+            </div>
+            <button
+              type="button"
+              className={styles.marqueeToggle}
+              aria-label={marqueeActionLabel}
+              title={marqueeActionLabel}
+              onClick={() => setIsMarqueePaused((paused) => !paused)}
+            >
+              {isMarqueePaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
+            </button>
+          </div>
           <a href="#about" className={styles.aboutLink} onClick={scrollToSection}>
             {t('cta_about')}
             <span className={styles.aboutArrow}><ArrowDown size={17} aria-hidden="true" /></span>
