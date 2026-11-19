@@ -37,7 +37,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/Alfian57/satu-platform',
     },
-    thumbnail: '/proyek/SATU-Platform-Web/SATU-Platform.png',
+    thumbnail: '/proyek/SATU-Platform-Web/Satu.png',
     orientation: 'landscape',
   },
   {
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/Gamblock-AI/Gamblock-AI-Website',
     },
-    thumbnail: '/proyek/Gamblock-AI-Web/Gamblock-AI-Web.jpeg',
+    thumbnail: '/proyek/Gamblock-AI-Web/Gamblock-AI.png',
     orientation: 'landscape',
   },
   {
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/DeryWahyu/ruang-tenang-api-main',
     },
-    thumbnail: '/proyek/ruang-tenang.png',
+    thumbnail: '/proyek/Ruang-Tenang-Web/Ruang-Tenang.png',
     orientation: 'landscape',
   },
   {
@@ -88,7 +88,24 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/DeryWahyu/ciks_coffee_web',
     },
-    thumbnail: '/proyek/cikscoffee.png',
+    thumbnail: '/proyek/Ciks-Coffee/Ciks-Coffee.png',
+    orientation: 'landscape',
+  },
+  {
+    slug: 'guardian-lab',
+    title: 'GuardianLab',
+    description: {
+      id: 'GuardianLab adalah platform keamanan digital berbasis AI untuk mendeteksi indikasi phishing pada URL/QR dan menganalisis APK secara statis. Dilengkapi sandbox terisolasi, edukasi interaktif, riwayat investigasi, dan kartu peringatan.',
+      en: 'GuardianLab is an AI-powered digital security platform for detecting signs of phishing in URLs and QR codes and performing static APK analysis. It includes an isolated sandbox, interactive education, investigation history, and warning cards.',
+    },
+    techStack: ['Next.js', 'AI Logistic Regression'],
+    category: ['web'],
+    context: 'lomba',
+    status: 'development',
+    links: {
+      github: 'https://github.com/DeryWahyu/mit-week-guardian-lab.git',
+    },
+    thumbnail: '/proyek/GuardianLab/GuardianLab.png',
     orientation: 'landscape',
   },
   {
