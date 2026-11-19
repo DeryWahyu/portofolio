@@ -1,5 +1,6 @@
 .projects {
   padding: var(--section-padding) 0;
+  background: radial-gradient(ellipse 52% 43% at 0% 44%, #60a5fa24, transparent 88%);
 }
 
 .filtersWrapper {

@@ -43,6 +43,7 @@
 .timelineColumn {
   display: flex;
   flex-direction: column;
+  background: radial-gradient(ellipse 44% 48% at 56% 52%, #82b5fc35, #82b5fc19 43%, transparent);
 }
 
 .timelineTitle {

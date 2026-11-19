@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Outfit } from 'next/font/google';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { SiteIntro } from '@/components/layout/SiteIntro';
 import { getSiteUrl } from '@/lib/site-url';
 import './globals.css';
 
@@ -60,12 +61,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const locale = await getLocale();
+  const [locale, t] = await Promise.all([getLocale(), getTranslations('intro')]);
 
   return (
     <html lang={locale} className={`${plusJakartaSans.variable} ${outfit.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
-        {children}
+        <SiteIntro label={t('loading')}>{children}</SiteIntro>
       </body>
     </html>
   );

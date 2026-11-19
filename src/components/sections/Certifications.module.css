@@ -1,5 +1,6 @@
 .certifications {
   padding: var(--section-padding) 0;
+  background: radial-gradient(ellipse 76% 47% at 50% 66%, #8ab9f930, transparent 94%);
 }
 
 .galleryToolbar {

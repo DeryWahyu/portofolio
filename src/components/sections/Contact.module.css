@@ -1,5 +1,8 @@
 .contact {
   padding: var(--section-padding) 0;
+  background:
+    radial-gradient(ellipse 72% 63% at 88% 92%, #7aa4ff42, transparent 94%),
+    radial-gradient(ellipse 55% 64% at 0% 73%, #7ab5f630, transparent 92%);
 }
 
 .grid {

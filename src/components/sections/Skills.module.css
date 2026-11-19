@@ -1,5 +1,21 @@
 .skills {
+  position: relative;
+  isolation: isolate;
   padding: var(--section-padding) 0;
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 18px;
+  right: max(0px, calc((100% - var(--container-max)) / 2));
+  width: clamp(144px, 32vw, 440px);
+  height: clamp(126px, 23vw, 290px);
+  pointer-events: none;
+  background-image: radial-gradient(circle, #4d7ee758 0.9px, transparent 1.2px);
+  background-size: 14px 14px;
+  mask-image: radial-gradient(ellipse 52% 55% at 57% 45%, #000 14%, transparent 81%);
 }
 
 .grid {

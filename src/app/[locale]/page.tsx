@@ -5,6 +5,7 @@ import { Skills } from '@/components/sections/Skills';
 import { Experience } from '@/components/sections/Experience';
 import { Certifications } from '@/components/sections/Certifications';
 import { Contact } from '@/components/sections/Contact';
+import styles from './page.module.css';
 
 export default function HomePage() {
   return (
@@ -13,29 +14,31 @@ export default function HomePage() {
         <Hero />
       </section>
 
-      <section id="about">
-        <About />
-      </section>
+      <div className={styles.sections}>
+        <section id="about">
+          <About />
+        </section>
 
-      <section id="projects">
-        <Projects />
-      </section>
+        <section id="projects">
+          <Projects />
+        </section>
 
-      <section id="skills">
-        <Skills />
-      </section>
+        <section id="skills">
+          <Skills />
+        </section>
 
-      <section id="experience">
-        <Experience />
-      </section>
+        <section id="experience">
+          <Experience />
+        </section>
 
-      <section id="certifications">
-        <Certifications />
-      </section>
+        <section id="certifications">
+          <Certifications />
+        </section>
 
-      <section id="contact">
-        <Contact />
-      </section>
+        <section id="contact">
+          <Contact />
+        </section>
+      </div>
     </>
   );
 }
