@@ -1,11 +1,10 @@
 'use client';
 
 import type { ComponentType, MouseEvent, PointerEvent } from 'react';
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
-import { ArrowDown, ArrowUpRight, Download, Mail, Pause, Play } from 'lucide-react';
+import { ArrowUpRight, Download, Mail } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon, InstagramIcon } from '@/components/icons';
 import { socials } from '@/data/socials';
 import styles from './Hero.module.css';
@@ -22,8 +21,6 @@ const disciplines = ['Web Development', 'Software Development', 'UI/UX Design', 
 
 export function Hero() {
   const t = useTranslations('hero');
-  const [isMarqueePaused, setIsMarqueePaused] = useState(false);
-  const marqueeActionLabel = t(isMarqueePaused ? 'resume_marquee' : 'pause_marquee');
   const reducedMotion = useReducedMotion();
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
@@ -164,31 +161,16 @@ export function Hero() {
         </div>
 
         <div className={styles.footer}>
-          <div className={styles.marquee}>
-            <div className={styles.marqueeViewport}>
-              <div className={styles.marqueeTrack} data-paused={isMarqueePaused}>
-                <ul className={styles.disciplines} aria-label={t('focus_label')} lang="en">
-                  {disciplines.map((discipline) => <li key={discipline}>{discipline}</li>)}
-                </ul>
-                <ul className={`${styles.disciplines} ${styles.marqueeCopy}`} aria-hidden="true">
-                  {disciplines.map((discipline) => <li key={discipline}>{discipline}</li>)}
-                </ul>
-              </div>
+          <div className={styles.marqueeViewport}>
+            <div className={styles.marqueeTrack}>
+              <ul className={styles.disciplines} aria-label={t('focus_label')} lang="en">
+                {disciplines.map((discipline) => <li key={discipline}>{discipline}</li>)}
+              </ul>
+              <ul className={`${styles.disciplines} ${styles.marqueeCopy}`} aria-hidden="true">
+                {disciplines.map((discipline) => <li key={discipline}>{discipline}</li>)}
+              </ul>
             </div>
-            <button
-              type="button"
-              className={styles.marqueeToggle}
-              aria-label={marqueeActionLabel}
-              title={marqueeActionLabel}
-              onClick={() => setIsMarqueePaused((paused) => !paused)}
-            >
-              {isMarqueePaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
-            </button>
           </div>
-          <a href="#about" className={styles.aboutLink} onClick={scrollToSection}>
-            {t('cta_about')}
-            <span className={styles.aboutArrow}><ArrowDown size={17} aria-hidden="true" /></span>
-          </a>
         </div>
       </div>
     </section>

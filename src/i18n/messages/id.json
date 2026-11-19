@@ -23,10 +23,7 @@
     "cta_cv": "Unduh CV",
     "social_label": "Temui saya di",
     "portrait_title": "Mahasiswa Informatika",
-    "focus_label": "Bidang yang saya kerjakan",
-    "pause_marquee": "Jeda teks berjalan",
-    "resume_marquee": "Lanjutkan teks berjalan",
-    "cta_about": "Kenali saya lebih dekat"
+    "focus_label": "Bidang yang saya kerjakan"
   },
   "about": {
     "title": "Tentang Saya",

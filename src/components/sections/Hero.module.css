@@ -131,8 +131,7 @@
 }
 
 .projectLink svg,
-.cvLink svg,
-.aboutArrow svg {
+.cvLink svg {
   flex-shrink: 0;
   transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -340,24 +339,12 @@
 
 .footer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  gap: 14px 24px;
+  min-height: 72px;
   margin-top: 64px;
   padding-block: 14px;
   border-top: 1px solid var(--color-border-strong);
-}
-
-.marquee {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-}
-
-.marqueeViewport {
-  flex: 1;
-  min-width: 0;
 }
 
 .disciplines {
@@ -383,24 +370,19 @@
   background: var(--color-primary);
 }
 
-.marqueeCopy,
-.marqueeToggle {
+.marqueeCopy {
   display: none;
 }
 
-.marqueeToggle {
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
-  color: var(--color-primary-text);
-}
-
 @media (prefers-reduced-motion: no-preference) {
+  .hero {
+    container-type: inline-size;
+  }
+
   .marqueeViewport {
+    /* Extend the text track to both edges of the hero. */
+    width: 100cqi;
+    margin-inline: calc((100% - 100cqi) / 2);
     container-type: inline-size;
     overflow: hidden;
     mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
@@ -410,10 +392,6 @@
     display: flex;
     width: max-content;
     animation: scrollDisciplines 24s linear infinite;
-  }
-
-  .marqueeTrack[data-paused='true'] {
-    animation-play-state: paused;
   }
 
   .disciplines {
@@ -430,33 +408,10 @@
   .marqueeCopy {
     display: flex;
   }
-
-  .marqueeToggle {
-    display: grid;
-  }
 }
 
 @keyframes scrollDisciplines {
   to { transform: translateX(-50%); }
-}
-
-.aboutLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 44px;
-  color: var(--text-secondary);
-  font-size: 12px;
-}
-
-.aboutArrow {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 50%;
-  color: var(--color-primary-text);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -464,18 +419,13 @@
     background: #1e40af;
   }
 
-  .cvLink:hover,
-  .aboutLink:hover {
+  .cvLink:hover {
     color: var(--color-primary-text);
   }
 
   .socialLink:hover {
     background: var(--color-primary-light);
     color: var(--color-primary-text);
-  }
-
-  .marqueeToggle:hover {
-    background: var(--color-primary-light);
   }
 }
 
@@ -503,7 +453,6 @@
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .projectLink:hover svg { transform: translate(2px, -2px); }
   .cvLink:hover svg { transform: translateY(2px); }
-  .aboutLink:hover svg { transform: translateY(3px); }
 }
 
 @keyframes enter {
@@ -561,11 +510,9 @@
   .footer {
     max-width: 540px;
     margin: 36px auto 0;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 8px;
+    min-height: 56px;
   }
 
-  .aboutLink { justify-self: start; }
   .disciplines li { font-size: 13px; gap: 8px; }
 }
 
