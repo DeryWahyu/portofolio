@@ -9,7 +9,9 @@ import { X, ExternalLink, Download, Play } from 'lucide-react';
 import { GitHubIcon, InstagramIcon } from '@/components/icons';
 import type { Project } from '@/data/projects';
 import Button from './Button';
+import ProjectMockupDecor from './ProjectMockupDecor';
 import styles from './ProjectModal.module.css';
+import mockupStyles from './ProjectMockup.module.css';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -108,7 +110,8 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             </button>
 
             {/* Thumbnail */}
-            <div className={`${styles.thumbnailWrapper} ${project.orientation === 'portrait' ? styles.modalPortraitWrapper : ''}`}>
+            <div className={`${styles.thumbnailWrapper} ${project.orientation === 'portrait' ? `${styles.modalPortraitWrapper} ${mockupStyles.portraitWrapper}` : ''}`}>
+              {project.orientation === 'portrait' && project.thumbnail && <ProjectMockupDecor />}
               {project.thumbnail ? (
                 project.orientation === 'portrait' && project.screenshots && project.screenshots.length >= 3 ? (
                   <div className={styles.modalTrioContainer}>

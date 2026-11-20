@@ -4,7 +4,9 @@ import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import type { Project } from '@/data/projects';
+import ProjectMockupDecor from './ProjectMockupDecor';
 import styles from './ProjectCard.module.css';
+import mockupStyles from './ProjectMockup.module.css';
 
 interface ProjectCardProps {
   project: Project;
@@ -46,7 +48,10 @@ export default function ProjectCard({ project, onClick, index = 0 }: ProjectCard
       }}
     >
       {/* Thumbnail */}
-      <div className={`${styles.thumbnailWrapper} ${project.orientation === 'portrait' ? styles.portraitWrapper : ''}`}>
+      <div className={`${styles.thumbnailWrapper} ${project.orientation === 'portrait' ? mockupStyles.portraitWrapper : ''}`}>
+        {project.orientation === 'portrait' && project.thumbnail && (
+          <ProjectMockupDecor />
+        )}
         {project.thumbnail ? (
           project.orientation === 'portrait' && project.screenshots && project.screenshots.length >= 3 ? (
             <div className={styles.trioContainer}>

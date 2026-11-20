@@ -1,0 +1,130 @@
+/* Portrait Device Mockup Canvas */
+.portraitWrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.72) 0%, transparent 48%),
+    radial-gradient(circle at 15% 15%, rgba(96, 165, 250, 0.4), transparent 38%),
+    linear-gradient(135deg, #dbeafe 0%, #bfdbfe 48%, #93c5fd 100%);
+}
+
+.portraitWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+:global([data-theme='dark']) .portraitWrapper {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(59, 130, 246, 0.3) 0%, transparent 48%),
+    radial-gradient(circle at 15% 15%, rgba(14, 165, 233, 0.2), transparent 38%),
+    linear-gradient(135deg, #102a50 0%, #143b70 48%, #1e40af 100%);
+}
+
+:global([data-theme='dark']) .portraitWrapper::before {
+  background-image:
+    linear-gradient(rgba(147, 197, 253, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, 0.14) 1px, transparent 1px);
+}
+
+/* Echo the orbit and small accents surrounding the hero portrait. */
+.mockupDecor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  color: #2563eb;
+}
+
+.mockupOrbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 18px rgba(255, 255, 255, 0.13), 0 0 0 19px rgba(37, 99, 235, 0.1);
+}
+
+.mockupPanel {
+  position: absolute;
+  width: clamp(38px, 18%, 68px);
+  height: 27px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(37, 99, 235, 0.38), rgba(37, 99, 235, 0.38)) 10px 8px / 48% 3px no-repeat,
+    linear-gradient(rgba(37, 99, 235, 0.18), rgba(37, 99, 235, 0.18)) 10px 15px / 65% 3px no-repeat,
+    rgba(255, 255, 255, 0.55);
+  box-shadow: 0 5px 16px rgba(30, 64, 175, 0.1);
+}
+
+.mockupPanelLeft {
+  top: 24%;
+  left: 6%;
+}
+
+.mockupPanelRight {
+  right: 6%;
+  bottom: 20%;
+}
+
+.mockupSpark {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+}
+
+.mockupSpark::before,
+.mockupSpark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.mockupSpark::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.mockupSparkTop {
+  top: 16%;
+  right: 13%;
+}
+
+.mockupSparkBottom {
+  bottom: 16%;
+  left: 14%;
+}
+
+:global([data-theme='dark']) .mockupDecor {
+  color: #93c5fd;
+}
+
+:global([data-theme='dark']) .mockupOrbit {
+  border-color: rgba(147, 197, 253, 0.35);
+  box-shadow: 0 0 0 18px rgba(147, 197, 253, 0.05), 0 0 0 19px rgba(147, 197, 253, 0.14);
+}
+
+:global([data-theme='dark']) .mockupPanel {
+  border-color: rgba(147, 197, 253, 0.4);
+  background:
+    linear-gradient(rgba(191, 219, 254, 0.7), rgba(191, 219, 254, 0.7)) 10px 8px / 48% 3px no-repeat,
+    linear-gradient(rgba(191, 219, 254, 0.35), rgba(191, 219, 254, 0.35)) 10px 15px / 65% 3px no-repeat,
+    rgba(15, 23, 42, 0.4);
+}

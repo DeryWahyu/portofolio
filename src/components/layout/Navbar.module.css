@@ -23,6 +23,12 @@
   padding-inline: 20px;
 }
 
+@media (min-width: 641px) {
+  .container {
+    padding-inline: var(--container-padding);
+  }
+}
+
 .logo {
   display: flex;
   align-items: center;

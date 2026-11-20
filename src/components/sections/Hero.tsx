@@ -139,7 +139,7 @@ export function Hero() {
                     style={{ x: reducedMotion ? 0 : photoX, y: reducedMotion ? 0 : photoY }}
                   >
                     <Image
-                      src="/Dery.png"
+                      src="/Formal Jas.png"
                       alt="Dery Wahyu Perdana"
                       fill
                       sizes="(max-width: 479px) 86vw, (max-width: 759px) 400px, (max-width: 1099px) 36vw, 384px"

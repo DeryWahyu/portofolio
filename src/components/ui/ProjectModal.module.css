@@ -77,7 +77,6 @@
 }
 
 .modalPortraitWrapper {
-  background: var(--gradient-surface);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -89,6 +88,8 @@
 }
 
 .modalPhoneContainer {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,6 +108,8 @@
 }
 
 .modalTrioContainer {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
