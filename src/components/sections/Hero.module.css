@@ -46,30 +46,23 @@
 }
 
 .content {
+  --hero-name-size: clamp(52px, 6.6vw, 92px);
   min-width: 0;
 }
 
 .greeting {
-  display: flex;
-  align-items: center;
-  gap: 14px;
   margin-bottom: 22px;
+  /* Align the visible edge of the greeting with the first letter of the heading. */
+  margin-inline-start: calc(var(--hero-name-size) * 0.075 - 1.5px);
   color: var(--text-secondary);
   font-size: 15px;
   font-weight: 500;
 }
 
-.greetingLine {
-  width: 32px;
-  height: 2px;
-  flex-shrink: 0;
-  background: var(--color-primary);
-}
-
 .name {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(52px, 6.6vw, 92px);
+  font-size: var(--hero-name-size);
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1.02;
@@ -470,7 +463,7 @@
     gap: 32px;
   }
 
-  .name { font-size: clamp(50px, 6.6vw, 72px); }
+  .content { --hero-name-size: clamp(50px, 6.6vw, 72px); }
   .subtitle { font-size: 15px; }
   .actions { gap: 10px 20px; }
   .projectLink { gap: 12px; padding-inline: 18px; }
@@ -492,7 +485,7 @@
   }
 
   .greeting { margin-bottom: 18px; font-size: 14px; }
-  .name { font-size: clamp(46px, 12vw, 76px); }
+  .content { --hero-name-size: clamp(46px, 12vw, 76px); }
   .headline { margin-top: 20px; font-size: 19px; text-wrap: pretty; }
   .subtitle { max-width: 46ch; line-height: 1.8; }
   .actions { margin-top: 24px; }

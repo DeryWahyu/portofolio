@@ -7,7 +7,7 @@ export interface Project {
   description: { id: string; en: string };
   techStack: string[];
   category: ProjectCategory[];
-  context: ProjectContext;
+  context?: ProjectContext;
   status: 'live' | 'development' | 'completed';
   links: {
     demo?: string;
@@ -23,6 +23,23 @@ export interface Project {
 
 export const projects: Project[] = [
   // ==================== WEB PROJECTS ====================
+  {
+    slug: 'aldera',
+    title: 'Aldera',
+    description: {
+      id: 'Aldera.tech adalah situs resmi studio pengembangan software untuk bisnis. Aldera Tech menawarkan jasa pembuatan website, aplikasi mobile, dan desain UI/UX, serta layanan cloud, integrasi AI, dan pemeliharaan sistem. Calon klien bisa melihat portofolio, menghitung estimasi biaya proyek, dan mengajukan konsultasi.',
+      en: 'Aldera.tech is the official website of a software development studio for businesses. Aldera Tech offers website and mobile app development, UI/UX design, cloud services, AI integration, and system maintenance. Prospective clients can browse the portfolio, estimate project costs, and request a consultation.',
+    },
+    techStack: ['Next.js', 'MySQL'],
+    category: ['web'],
+    status: 'development',
+    links: {
+      demo: 'https://aldera.tech',
+      github: 'https://github.com/AlderaTech/aldera-tech.git',
+    },
+    thumbnail: '/proyek/Aldera/Aldera.png',
+    orientation: 'landscape',
+  },
   {
     slug: 'satu-platform',
     title: 'SATU Platform',

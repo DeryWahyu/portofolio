@@ -65,10 +65,7 @@ export function Hero() {
       <div className={`${styles.container} container`}>
         <div className={styles.layout}>
           <div className={styles.content}>
-            <p className={styles.greeting}>
-              <span className={styles.greetingLine} aria-hidden="true" />
-              {t('greeting')}
-            </p>
+            <p className={styles.greeting}>{t('greeting')}</p>
 
             <h1 className={styles.name} id="hero-name">
               <span>Dery Wahyu</span>{' '}
